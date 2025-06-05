@@ -7,7 +7,142 @@
       name="description"
       content="Les Petits Plats est un site de recettes de cuisine, offrant une variété de plats pour tous les goûts."
     />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Shrikhand&display=swap" rel="stylesheet">
+
     <title>Les Petits Plats</title>
   </head>
-  <body></body>
+  <body class = max-w-screen bg-gray-100 text-gray-900 font-sans">
+    <header class="relative w-screen">
+  <!-- Logo -->
+  <div class="logo flex items-center gap-4 p-4">
+    <img
+      src="/images/logo-Les petits plats.png"
+      alt="Logo Les Petits Plats"
+      class="h-12"
+    />
+    <img
+      src="/images/Logo-round.png"
+      alt="Logo rond Les Petits Plats"
+      class="h-12"
+    />
+  </div>
+
+  <!-- Image de fond avec overlay -->
+  <div class="relative w-full h-80 overflow-hidden">
+    <!-- Image -->
+    <img
+      src="images/photo-home.jpg"
+      alt="Photo d'accueil Les Petits Plats"
+      class="object-cover w-full h-full"
+    />
+    <!-- Overlay sombre -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+    <!-- Texte et champ de recherche -->
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10">
+      <h1 class="text-yellow-300 text-3xl md:text-5xl font-semibold mb-6">
+        Chercher parmi plus de 1500 recettes du quotidien,<br />
+        simples et délicieuses
+      </h1>
+
+      <!-- Barre de recherche -->
+      <div class="flex items-center w-full max-w-3xl mt-4">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Rechercher une recette, un ingrédient..."
+          aria-label="Rechercher une recette"
+          class="w-full h-14 rounded-l-2xl px-6 text-black"
+        />
+        <button
+          type="submit"
+          aria-label="Rechercher une recette ou un ingrédient"
+          class="bg-black text-white w-14 h-14 rounded-r-2xl flex justify-center items-center"
+        >
+          <i class="fa-solid fa-magnifying-glass text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+    
+    <main>
+   <section>
+    <div class="flex justify-evenly items-center mt-8 mb-8" aria-label="Rechercher un ingrédient, un appareil ou un ustensile parmi 1500 recettes ">
+      <button class="bg-yellow-300 text-black px-4 py-2 rounded-lg" id="search-button" aria-label="Rechercher des recettes">
+        Rechercher
+      </button>
+    <div class="flex-row justify-start items-center mt-24 mb-24 w-4xl" aria-label="Filtres de recherche">
+     <div class="ingredient">
+        <input
+      type="text"
+      id="ingredient-search"
+      placeholder="Rechercher un ingrédient"
+      class="border border-gray-300 rounded px-8 py-2 w-4xs mb-2" aria-label="Rechercher un ingrédient"
+    />
+    <select id="ingredients" class="border border-gray-300 rounded px-2 py-1 w-full">
+      <option value="" disabled selected>Ingrédient</option>
+      <option value="jus-citron" aria-label="Jus de citron">Jus de citron</option>
+      <option value="glaçons" aria-label="Glaçons">Glaçons</option>
+      <option value="tomate" aria-label="Tomate">Tomate</option>
+      <option value="poulet" aria-label="Poulet">Poulet</option>
+      <option value="poivron-rouge" aria-label="Poivron rouge">Poivron rouge</option>
+      <option value="thon-miettes" aria-label="Thon en miettes">Thon en miettes</option>
+      <option value="vinaigrette" aria-label="Vinaigrette">Vinaigrette</option>
+      <option value="gruyere-rape" aria-label="Gruyère râpé">Gruyère râpé</option>
+      <option value="oeuf" aria-label="Oeuf">Oeuf</option>
+      <option value="creme-liquide" aria-label="Crème liquide">Crème liquide</option>
+      <option value="creme-coco" aria-label="Crème de coco">Crème de Coco</option>
+      <option value="thon-rouge" aria-label="Thon rouge">Thon rouge</option>
+      <option value="carotte" aria-label="Carotte">Carotte</option>
+      <option value="coulis-tomate" aria-label="Coulis de tomate">Coulis de tomate</option>
+      <option value="huile-olive" aria-label="Huile d'olive">Huile d'olive</option>
+      <option value="oeuf-dur" aria-label="Oeuf dur">Oeuf dur</option>
+      <option value="pate-feuilletee" aria-label="Pâte feuilletée">Pâte feuilletée</option>
+      <option value="moutarde-dijon" aria-label="Moutarde de Dijon">Moutarde de Dijon</option>
+      <option value="sucre-poudre" aria-label="Sucre en poudr">Sucre en poudre</option>
+      <option value="beurre" aria-label="Beurre">Beurre</option>
+    </select>
+  </div>
+
+  <div class="appareil" aria-label="Rechercher un appareil">
+          <select id="appareil" class="border border-gray-300 rounded px-2 py-1 w-full">
+      <option value="" disabled selected>Appareil</option>
+         </select>
+  </div>
+
+  <div class="ustensile" aria-label="Rechercher un ustensile">
+         <select id="ustensile" class="border border-gray-300 rounded px-2 py-1 w-full">
+      <option value="" disabled selected>Ustensile</option>
+      </select>
+    </div>
+    <div class="flex justify-end mt-8 mb-8" aria-label="1500 recettes">
+      <h2 class="text-2xl font-normal w-3xs">1500 recettes</h2>
+    </div>
+</section>
+
+<section class="recipe-list" aria-label="Liste des recettes">
+<article class="recipe-item" aria-label="Recette Limonade de coco">
+  <img src="/JSON recipes/Recette01.jpg" alt="Limonade de coco"/>
+  <div class="recipe-item">
+<h2 class="recipe-title">Limonade de coco</h2>
+<h3 class="recipe">Recette</h3>
+<p></p>
+  </div>
+  <div class ="ingredients" aria-label="Ingrédients de la recette Limonade de coco">
+   <h3 class="ingredients-title">Ingrédients</h3>
+   <h4 class="ingredient-item">Lait de coco</h4>
+   <p>400 ml</p>
+  </div>
+</article>
+</section>
+
+  
+    </main>
+  </body>
 </html>

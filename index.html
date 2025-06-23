@@ -11,59 +11,64 @@
     <link rel="stylesheet" href="/styles.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Shrikhand&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 
     <title>Les Petits Plats</title>
   </head>
   <body class = max-w-screen bg-gray-100 text-gray-900 font-sans">
     <header class="relative w-screen">
-  <!-- Logo -->
-  <div class="logo flex items-center gap-4 p-4">
+  
+<div class="absolute logo flex items-center w-2xs gap-1 py-16 px-8 z-200">
     <img
       src="/images/logo-Les petits plats.png"
       alt="Logo Les Petits Plats"
-      class="h-12"
+      class="h-6"
     />
     <img
       src="/images/Logo-round.png"
       alt="Logo rond Les Petits Plats"
-      class="h-12"
+      class="h-6"
     />
   </div>
 
-  <!-- Image de fond avec overlay -->
-  <div class="relative w-full h-80 overflow-hidden">
-    <!-- Image -->
+  <div class="relative inset-x-0 top-0 h-40px overflow-hidden">
+
     <img
-      src="images/photo-home.jpg"
+      src="images/background-photo.png"
       alt="Photo d'accueil Les Petits Plats"
-      class="object-cover w-full h-full"
+      class="object-contain w-full h-50px"
     />
-    <!-- Overlay sombre -->
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-
-    <!-- Texte et champ de recherche -->
-    <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10">
+   
+        
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-20 w-400px z-200">
       <h1 class="text-yellow-300 text-3xl md:text-5xl font-semibold mb-6">
-        Chercher parmi plus de 1500 recettes du quotidien,<br />
-        simples et délicieuses
+        Cherchez parmi plus de 1500 recettes<br />
+        du quotidien, simples et délicieuses
       </h1>
-
-      <!-- Barre de recherche -->
-      <div class="flex items-center w-full max-w-3xl mt-4">
+   
+      <div class="flex items-center w-full max-w-4xl mt-4 rounded-xl bg-neutral-50"">
         <input
           id="search-input"
           type="text"
           placeholder="Rechercher une recette, un ingrédient..."
-          aria-label="Rechercher une recette"
-          class="w-full h-14 rounded-l-2xl px-6 text-black"
+          aria-label="Rechercher une recette, un ingrédient"
+          class="w-full h-16 rounded-xl ps-8 pr-16 text-base"
         />
         <button
           type="submit"
           aria-label="Rechercher une recette ou un ingrédient"
-          class="bg-black text-white w-14 h-14 rounded-r-2xl flex justify-center items-center"
+          class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2"
         >
-          <i class="fa-solid fa-magnifying-glass text-xl"></i>
+         <img
+      src="images/magnifying-glass-search-icon.svg"
+      alt="Chercher une recette ou un ingrédient"
+      class="object-contain w-full h-6"
+    />
         </button>
       </div>
     </div>
@@ -73,19 +78,10 @@
     
     <main>
    <section>
-    <div class="flex justify-evenly items-center mt-8 mb-8" aria-label="Rechercher un ingrédient, un appareil ou un ustensile parmi 1500 recettes ">
-      <button class="bg-yellow-300 text-black px-4 py-2 rounded-lg" id="search-button" aria-label="Rechercher des recettes">
-        Rechercher
-      </button>
-    <div class="flex-row justify-start items-center mt-24 mb-24 w-4xl" aria-label="Filtres de recherche">
-     <div class="ingredient">
-        <input
-      type="text"
-      id="ingredient-search"
-      placeholder="Rechercher un ingrédient"
-      class="border border-gray-300 rounded px-8 py-2 w-4xs mb-2" aria-label="Rechercher un ingrédient"
-    />
-    <select id="ingredients" class="border border-gray-300 rounded px-2 py-1 w-full">
+         <div class="flex-row flex-wrap justify-evenly m-24 w-5xl" aria-label="Filtres de recherche">
+     <div class="flex w-70" aria-label="Rechercher un ingrédient">
+        
+    <select id="ingredients" class="border border-gray-300 rounded px-2 py-1 w-60" title="Sélectionner un ingrédient">
       <option value="" disabled selected>Ingrédient</option>
       <option value="jus-citron" aria-label="Jus de citron">Jus de citron</option>
       <option value="glaçons" aria-label="Glaçons">Glaçons</option>
@@ -110,18 +106,18 @@
     </select>
   </div>
 
-  <div class="appareil" aria-label="Rechercher un appareil">
-          <select id="appareil" class="border border-gray-300 rounded px-2 py-1 w-full">
+  <div class="flex w-70" aria-label="Rechercher un appareil">
+          <select id="appareil" class="border border-gray-300 rounded px-2 py-1 w-60" title="Sélectionner un appareil">
       <option value="" disabled selected>Appareil</option>
          </select>
   </div>
 
-  <div class="ustensile" aria-label="Rechercher un ustensile">
-         <select id="ustensile" class="border border-gray-300 rounded px-2 py-1 w-full">
+  <div class="flex w-70" aria-label="Rechercher un ustensile">
+         <select id="ustensile" class="border border-gray-300 rounded px-2 py-1 w-60" title="Sélectionner un ustensile">
       <option value="" disabled selected>Ustensile</option>
       </select>
     </div>
-    <div class="flex justify-end mt-8 mb-8" aria-label="1500 recettes">
+    <div class="flex justify-end mt-8 mb-8 w-100" aria-label="1500 recettes">
       <h2 class="text-2xl font-normal w-3xs">1500 recettes</h2>
     </div>
 </section>

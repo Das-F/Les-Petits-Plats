@@ -20,7 +20,7 @@
 
     <title>Les Petits Plats</title>
   </head>
-  <body class = max-w-screen bg-gray-100 text-gray-900 font-sans">
+  <body class = max-w-screen mx-auto font-sans bg-gray-200">
     <header class="relative w-screen">
   
 <div class="absolute logo flex items-center w-2xs gap-1 py-16 px-8 z-200">
@@ -77,11 +77,11 @@
 
     
     <main>
-   <section>
-         <div class="flex-row flex-wrap justify-evenly m-24 w-5xl" aria-label="Filtres de recherche">
-     <div class="flex w-70" aria-label="Rechercher un ingrédient">
-        
-    <select id="ingredients" class="border border-gray-300 rounded px-2 py-1 w-60" title="Sélectionner un ingrédient">
+   <section class="m-0 p-0">
+    <div class="flex justify-between items-center px-10 py-4">
+    <div class="flex flex-row flex-wrap justify-evenly justify-start gap-10 w-7xl" aria-label="Filtres de recherche">
+     <div class="flex w-40 bg-white rounded-lg" aria-label="Rechercher un ingrédient"> 
+    <select id="ingredients" class="border border-gray-300 rounded-lg px-2 py-1 w-60 bg-white" title="Sélectionner un ingrédient">
       <option value="" disabled selected>Ingrédient</option>
       <option value="jus-citron" aria-label="Jus de citron">Jus de citron</option>
       <option value="glaçons" aria-label="Glaçons">Glaçons</option>
@@ -106,19 +106,21 @@
     </select>
   </div>
 
-  <div class="flex w-70" aria-label="Rechercher un appareil">
-          <select id="appareil" class="border border-gray-300 rounded px-2 py-1 w-60" title="Sélectionner un appareil">
-      <option value="" disabled selected>Appareil</option>
+  <div class="flex w-40 h-12 justify-evenly content-center py-2 rounded-lg bg-white border border-gray-300 text-left" aria-label="Rechercher un appareil">
+         <h3 class="text-base font-light">Appareil</h3>
+    <img src="/images/Arrow-down.png" alt="Déplier le filre d'appareils" class="size-3 ml-2 justify-center content-center" />
          </select>
   </div>
 
-  <div class="flex w-70" aria-label="Rechercher un ustensile">
-         <select id="ustensile" class="border border-gray-300 rounded px-2 py-1 w-60" title="Sélectionner un ustensile">
-      <option value="" disabled selected>Ustensile</option>
-      </select>
+  <div class="flex w-40 h-12 justify-evenly content-center py-2 rounded-lg  bg-white border border-gray-300 text-left" aria-label="Rechercher un ustensile">
+    <h3 class="text-base font-light">Ustensile</h3>
+    <img src="/images/Arrow-down.png" alt="Déplier le filre d'ustensiles" class="size-3 ml-2 justify-center content-center" />
     </div>
-    <div class="flex justify-end mt-8 mb-8 w-100" aria-label="1500 recettes">
-      <h2 class="text-2xl font-normal w-3xs">1500 recettes</h2>
+    </div>
+    <div class="flex mt-8 mb-8 w-100" aria-label="1500 recettes">
+      <h2 class="flex justify-end text-2xl font-bold w-3xs">1500 recettes</h2>
+    
+    </div>
     </div>
 </section>
 

@@ -1,11 +1,12 @@
 body {
   font-family: "Manrope", sans-serf;
-  background-color: lightgray;
+  background-color: #c6c6c6;
 }
 
 h1 {
   font-family: "Anton", sans-serif;
   text-transform: uppercase;
+  color: #ffd05a;
 }
 
 h3 {

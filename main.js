@@ -5,20 +5,15 @@ async function fetchRecipesData() {
 }
 
 function recipeData(data) {
-  const {
-    id,
-    image,
-    name,
-    ingredients,
-    time,
-    description,
-    appliance,
-    ustensils,
-  } = data;
+  const { id, image, name, ingredients, time, description, appliance, ustensils } = data;
   console.log("Recipe Data:", data);
   const picture = "recipes.js";
 }
 
-// function getRecipeCard(data) {
-
-// }
+function getRecipeCard(data) {
+  const recipeDescription = document.createElement("p");
+  recipeDescription.textContent = data.description || "Recipe Description";
+  const recipeTitleAndDescription = document.getElementById("recipe-title-and-description");
+  recipeTitleAndDescription.appendChild(recipeDescription);
+  return recipeDescription;
+}

@@ -1,6 +1,5 @@
 async function fetchRecipesData() {
   const response = await fetch("recipes.json");
-  console.log(response);
   return await response.json();
 }
 
@@ -11,14 +10,20 @@ function recipeData(data) {
 async function main() {
   const data = await fetchRecipesData();
   recipeData(data);
+
+  const recipe = data.recipes[0];
+
+  const img = document.getElementById("recipe-image");
+  if (img) {
+    img.src = recipe.image;
+    console.log("Recipe Image:", img.src);
+  }
+
+  const overlay = document.getElementById("recipe-image-overlay");
+  if (overlay) {
+    overlay.textContent = recipe.time + " minutes";
+    console.log("Recipe Time:", overlay.textContent);
+  }
 }
 
 main();
-
-// function getRecipeCard(data) {
-//   const recipeDescription = document.createElement("p");
-//   recipeDescription.textContent = data.description || "Recipe Description";
-//   const recipeTitleAndDescription = document.getElementById("recipe-title-and-description");
-//   recipeTitleAndDescription.appendChild(recipeDescription);
-//   return recipeDescription;
-// }

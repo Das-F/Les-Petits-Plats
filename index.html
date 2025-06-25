@@ -8,7 +8,7 @@
       content="Les Petits Plats est un site de recettes de cuisine, offrant une variété de plats pour tous les goûts."
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,7 +25,7 @@
 
     <title>Les Petits Plats</title>
   </head>
-  <body class= max-w-screen mx-auto font-sans bg-gray-200">
+  <body class= max-w-screen mx-auto">
   <header class="relative w-screen">
     <div class="absolute logo flex items-center w-2xs gap-1 py-16 px-8 z-200">
       <img
@@ -50,13 +50,13 @@
       <div
         class="absolute inset-0 flex flex-col justify-center items-center text-center px-20 w-400px z-200"
       >
-        <h1 class="text-yellow-300 text-3xl md:text-5xl font-semibold mb-6">
+        <h1 class="text-yellow-300 text-3xl md:text-5xl mb-6">
           Cherchez parmi plus de 1500 recettes<br />
           du quotidien, simples et délicieuses
         </h1>
 
         <div class="flex items-center w-full max-w-4xl mt-4 rounded-xl
-        bg-neutral-50"">
+        bg-neutral-50">
         <input
           id="search-input"
           type="text"
@@ -168,7 +168,7 @@
         </div>
       </div>
       <div class="flex mt-8 mb-8 w-100" aria-label="1500 recettes">
-        <h2 class="flex justify-end text-2xl font-bold w-3xs">1500 recettes</h2>
+        <h2 id="recipe-counter" class="recipe-counter flex justify-end text-2xl w-3xs">1500 recettes</h2>
       </div>
     </div>
   </section>
@@ -185,6 +185,8 @@
           <div class="flex flex-col justify-start items-start px-2"></div>
         </div>
       </div>
+      </div>
     </div>
   </section>
+  </body>
 </html>

@@ -1,15 +1,19 @@
-// === Fetch JSON Data ===//
 async function fetchRecipesData() {
-  const response = await fetch("data/recipes.json");
+  const response = await fetch("recipes.json");
+  console.log(response);
   return await response.json();
-  console.log("Data fetched successfully");
 }
 
-// function recipeData(data) {
-//   const { id, image, name, ingredients, time, description, appliance, ustensils } = data;
-//   console.log("Recipe Data:", data);
-//   const picture = "recipes.js";
-// }
+function recipeData(data) {
+  console.log("Recipe Data:", data);
+}
+
+async function main() {
+  const data = await fetchRecipesData();
+  recipeData(data);
+}
+
+main();
 
 // function getRecipeCard(data) {
 //   const recipeDescription = document.createElement("p");

@@ -1,6 +1,6 @@
-import { fetchRecipesData } from "./scripts/fetch.js";
+import { fetchRecipesData } from "./fetchRecipesData.js";
 
-async function displayRecipes() {
+export async function createRecipeCard() {
   const data = await fetchRecipesData();
 
   const recipe = data[0];
@@ -18,4 +18,4 @@ async function displayRecipes() {
   }
 }
 
-displayRecipes();
+createRecipeCard();

@@ -11,7 +11,7 @@ async function main() {
   const data = await fetchRecipesData();
   recipeData(data);
 
-  const recipe = data.recipes[0];
+  const recipe = data[0];
 
   const img = document.getElementById("recipe-image");
   if (img) {

@@ -1,13 +1,6 @@
-async function fetchRecipesData() {
-  const response = await fetch("recipes.json");
-  return await response.json();
-}
+import { fetchRecipesData } from "./scripts/fetch.js";
 
-function recipeData(data) {
-  console.log("Recipe Data:", data);
-}
-
-async function main() {
+async function displayRecipes() {
   const data = await fetchRecipesData();
   recipeData(data);
 
@@ -26,4 +19,4 @@ async function main() {
   }
 }
 
-main();
+displayRecipes();

@@ -1,4 +1,4 @@
-async function fetchRecipesData() {
+export async function fetchRecipesData() {
   const response = await fetch("recipes.json");
   return await response.json();
 }

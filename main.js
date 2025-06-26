@@ -2,7 +2,6 @@ import { fetchRecipesData } from "./scripts/fetch.js";
 
 async function displayRecipes() {
   const data = await fetchRecipesData();
-  recipeData(data);
 
   const recipe = data[0];
 

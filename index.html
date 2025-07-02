@@ -30,8 +30,8 @@
         </h1>
 
         <div class="flex items-center w-full max-w-4xl mt-4 rounded-xl bg-neutral-50">
-          <input id="search-input" type="text" placeholder="Rechercher une recette, un ingrédient..." aria-label="Rechercher une recette, un ingrédient" class="w-full h-16 rounded-xl ps-8 pr-16 text-base" />
-          <button type="submit" aria-label="Rechercher une recette ou un ingrédient" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2">
+          <input id="search-input" type="text" placeholder="Rechercher une recette, un ingrédient..." class="w-full h-16 rounded-xl ps-8 pr-16 text-base" />
+          <button type="submit" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2">
             <img src="images/magnifying-glass-search-icon.svg" alt="Chercher une recette ou un ingrédient" class="object-contain w-full h-6" />
           </button>
         </div>
@@ -40,49 +40,49 @@
 
     <section class="m-0 p-0">
       <div class="flex justify-between items-center px-10 py-4">
-        <div class="flex flex-row flex-wrap justify-evenly justify-start gap-10 w-7xl" aria-label="Filtres de recherche">
-          <div class="flex w-40 bg-white rounded-lg" aria-label="Rechercher un ingrédient">
+        <div class="flex flex-row flex-wrap justify-evenly justify-start gap-10 w-7xl">
+          <div class="flex w-40 bg-white rounded-lg">
             <select id="ingredients" class="border border-gray-300 rounded-lg px-2 py-1 w-60 bg-white" title="Sélectionner un ingrédient">
               <option value="" disabled selected>Ingrédient</option>
-              <option value="jus-citron" aria-label="Jus de citron">Jus de citron</option>
-              <option value="glaçons" aria-label="Glaçons">Glaçons</option>
-              <option value="tomate" aria-label="Tomate">Tomate</option>
-              <option value="poulet" aria-label="Poulet">Poulet</option>
-              <option value="poivron-rouge" aria-label="Poivron rouge">Poivron rouge</option>
-              <option value="thon-miettes" aria-label="Thon en miettes">Thon en miettes</option>
-              <option value="vinaigrette" aria-label="Vinaigrette">Vinaigrette</option>
-              <option value="gruyere-rape" aria-label="Gruyère râpé">Gruyère râpé</option>
-              <option value="oeuf" aria-label="Oeuf">Oeuf</option>
-              <option value="creme-liquide" aria-label="Crème liquide">Crème liquide</option>
-              <option value="creme-coco" aria-label="Crème de coco">Crème de Coco</option>
-              <option value="thon-rouge" aria-label="Thon rouge">Thon rouge</option>
-              <option value="carotte" aria-label="Carotte">Carotte</option>
-              <option value="coulis-tomate" aria-label="Coulis de tomate">Coulis de tomate</option>
-              <option value="huile-olive" aria-label="Huile d'olive">Huile d'olive</option>
-              <option value="oeuf-dur" aria-label="Oeuf dur">Oeuf dur</option>
-              <option value="pate-feuilletee" aria-label="Pâte feuilletée">Pâte feuilletée</option>
-              <option value="moutarde-dijon" aria-label="Moutarde de Dijon">Moutarde de Dijon</option>
-              <option value="sucre-poudre" aria-label="Sucre en poudr">Sucre en poudre</option>
-              <option value="beurre" aria-label="Beurre">Beurre</option>
+              <option value="jus-citron">Jus de citron</option>
+              <option value="glaçons">Glaçons</option>
+              <option value="tomate">Tomate</option>
+              <option value="poulet">Poulet</option>
+              <option value="poivron-rouge">Poivron rouge</option>
+              <option value="thon-miettes">Thon en miettes</option>
+              <option value="vinaigrette">Vinaigrette</option>
+              <option value="gruyere-rape">Gruyère râpé</option>
+              <option value="oeuf">Oeuf</option>
+              <option value="creme-liquide">Crème liquide</option>
+              <option value="creme-coco">Crème de Coco</option>
+              <option value="thon-rouge">Thon rouge</option>
+              <option value="carotte">Carotte</option>
+              <option value="coulis-tomate">Coulis de tomate</option>
+              <option value="huile-olive">Huile d'olive</option>
+              <option value="oeuf-dur">Oeuf dur</option>
+              <option value="pate-feuilletee">Pâte feuilletée</option>
+              <option value="moutarde-dijon">Moutarde de Dijon</option>
+              <option value="sucre-poudre">Sucre en poudre</option>
+              <option value="beurre">Beurre</option>
             </select>
           </div>
 
-          <div class="flex w-40 h-12 justify-evenly content-center py-2 rounded-lg bg-white border border-gray-300 text-left" aria-label="Rechercher un appareil">
-            <h3 class="text-base font-light">Appareil</h3>
+          <div class="appareil-filter flex w-40 h-12 justify-evenly content-center py-2 rounded-lg bg-white border border-gray-300 text-left">
+            <p class="text-base font-light">Appareil</p>
             <img src="/images/Arrow-down.png" alt="Déplier le filre d'appareils" class="size-3 ml-2 justify-center content-center" />
           </div>
-          <div class="flex w-40 h-12 justify-evenly content-center py-2 rounded-lg bg-white border border-gray-300 text-left" aria-label="Rechercher un ustensile">
-            <h3 class="text-base font-light">Ustensile</h3>
+          <div class="ustensil-filter flex w-40 h-12 justify-evenly content-center py-2 rounded-lg bg-white border border-gray-300 text-left">
+            <p class="text-base font-light">Ustensile</p>
             <img src="/images/Arrow-down.png" alt="Déplier le filre d'ustensiles" class="size-3 ml-2 justify-center content-center" />
           </div>
         </div>
-        <div class="flex mt-8 mb-8 w-100" aria-label="1500 recettes">
+        <div class="recipe-counter flex mt-8 mb-8 w-100">
           <h2 id="recipe-counter" class="recipe-counter flex justify-end text-2xl w-3xs">1500 recettes</h2>
         </div>
       </div>
     </section>
 
-    <section id="recipe-list" class="recipes m-0 p-0" aria-label="Liste des recettes">
+    <section id="recipe-list" class="recipes m-0 px-10">
       <!-- <div id="recipe-card" class="flex flex-wrap justify-evenly w-sm h-300px gap-10 px-8 py-4 bg-white">
         <div id="recipe-img-container" class="flex w-3xs h-3xs rounded-lg bg-white shadow-md">
           <div id="recipe-image" class="flex overflow-hidden w-full h-full">

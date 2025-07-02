@@ -28,9 +28,8 @@ export async function createCardImage() {
   const recipeImage = document.createElement("img");
   recipeImage.className = "object-cover w-full h-full";
   recipeImage.src = recipe.image;
-  const imgContainer = getElementById("recipe-img-container");
+  const imgContainer = document.getElementById("recipe-img-container");
   imgContainer.appendChild(recipeImage);
-
   return recipeImage;
 }
 
@@ -40,7 +39,8 @@ export async function createCardImageOverlay() {
 
   const overlay = document.createElement("div");
   overlay.className = "absolute top-4 right-4 bg-yellow-400 text-black text-sm font-medium px-3 py-1 rounded-full shadow-md";
-  overlay.textContent = recipe.time + "mn";
+  overlay.textContent = `${recipe.time}mn`;
+  imgContainer.appendChild(overlay);
   return overlay;
 }
 

@@ -39,7 +39,7 @@
     </header>
 
     <section class="m-0 p-0">
-      <div class="flex justify-between items-center px-10 py-4">
+      <div class="filters flex justify-between items-center px-10 py-4">
         <div class="flex flex-row flex-wrap justify-evenly justify-start gap-10 w-7xl">
           <div class="flex w-40 bg-white rounded-lg">
             <select id="ingredients" class="border border-gray-300 rounded-lg px-2 py-1 w-60 bg-white" title="Sélectionner un ingrédient">
@@ -83,21 +83,21 @@
     </section>
 
     <section id="recipe-list" class="recipes m-0 px-10">
-      <!-- <div id="recipe-card" class="flex flex-wrap justify-evenly w-sm h-300px gap-10 px-8 py-4 bg-white">
-        <div id="recipe-img-container" class="flex w-3xs h-3xs rounded-lg bg-white shadow-md">
-          <div id="recipe-image" class="flex overflow-hidden w-full h-full">
+      <div id="recipe-card" class="flex w-[380px] h-[600px] bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+        <div id="recipe-img-container" class="flex w-full h-[240px] rounded-lg bg-white shadow-md">
+          <div id="recipe-image" class="recipe-image flex">
             <img src="images/background-photo.png" alt="Recette" class="object-cover w-full h-full" />
           </div>
           <div id="recipe-image-overlay" class="flex absolute py-1 pr-1 justify-start">60mn</div>
         </div>
-        <div id="recipe-title-and-description" class="flex flex-col justify-start font-bold text-lg justify-start items-center px-2">
-          <h3 id="recipe-title" class="text-base">Tarte aux mirabelles</h3>
-          <h4 id="recipe-title" class="text-base">Recette</h4>
-          <p id="recipe-description" class="text-sm text-gray-600">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
-          <h4 id="recipe-ingredients" class="text-base">Ingrédients</h4>
+        <div id="recipe-title-and-description" class="flex flex-col font-bold text-lg justify-start items-start w-full px-6 py-6">
+          <h3 id="recipe-title" class="text-base pb-6">Tarte aux mirabelles</h3>
+          <h4 id="recipe-name" class="recipe-title">Recette</h4>
+          <p id="recipe-description" class="text-sm text-gray-600 pt-3 pb-8">Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+          <h4 id="recipe-ingredients" class="recipe-ingredients">Ingrédients</h4>
         </div>
         <div id="ingredients-list" class="flex flex-col justify-start items-start px-2"></div>
-      </div> -->
+      </div>
     </section>
     <script type="module" src="scripts/main.js"></script>
   </body>

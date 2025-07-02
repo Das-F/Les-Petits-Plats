@@ -9,10 +9,29 @@ h1 {
   color: #ffd05a;
 }
 
-p {
+.filters > p {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+h3 {
   font-family: "Anton", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
+}
+
+#recipe-title-and-description > h4 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #7a7a7a;
+}
+
+#recipe-title-and-description > p {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .recipe-counter {

@@ -14,6 +14,11 @@ h1 {
   font-weight: 500;
   font-size: 16px;
 }
+
+.recipe-counter {
+  font-family: "Anton", sans-serif;
+}
+
 h3 {
   font-family: "Anton", sans-serif;
   font-weight: 400;
@@ -34,6 +39,15 @@ h3 {
   font-size: 14px;
 }
 
-.recipe-counter {
-  font-family: "Anton", sans-serif;
+.ingredient-item {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.ingredient-quantity {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #7a7a7a;
 }

@@ -35,7 +35,7 @@ h3 {
   font-size: 18px;
 }
 
-#recipe-title-and-description > h4 {
+.recipe-title-and-description > h4 {
   font-family: "Manrope", sans-serif;
   font-weight: 700;
   font-size: 12px;
@@ -43,7 +43,7 @@ h3 {
   color: #7a7a7a;
 }
 
-#recipe-title-and-description > p {
+.recipe-title-and-description > p {
   font-family: "Manrope", sans-serif;
   font-weight: 400;
   font-size: 14px;

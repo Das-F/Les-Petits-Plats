@@ -9,6 +9,16 @@ h1 {
   color: #ffd05a;
 }
 
+#submit-button:hover {
+  background-color: #ffd05a;
+  transition-duration: 0.6s;
+}
+
+#submit-button > svg:hover {
+  color: black;
+  transition-duration: 0.6s;
+}
+
 .filters > p {
   font-family: "Manrope", sans-serif;
   font-weight: 500;

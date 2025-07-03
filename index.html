@@ -31,8 +31,10 @@
 
         <div class="flex items-center w-full max-w-4xl mt-4 rounded-xl bg-neutral-50">
           <input id="search-input" type="text" placeholder="Rechercher une recette, un ingrédient..." class="w-full h-16 rounded-xl ps-8 pr-16 text-base" />
-          <button type="submit" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2">
-            <img src="images/magnifying-glass-search-icon.svg" alt="Chercher une recette ou un ingrédient" class="object-contain w-full h-6" />
+          <button type="submit" id="submit-button" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2" aria-label="Rechercher">
+            <svg class="object-contain w-full h-6 fill-neutral-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M10 2a8 8 0 105.29 14.29l5.3 5.3a1 1 0 001.42-1.42l-5.3-5.3A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z" />
+            </svg>
           </button>
         </div>
       </div>
@@ -67,13 +69,13 @@
             </select>
           </div>
 
-          <div class="appareil-filter flex w-40 h-12 justify-evenly content-center py-2 rounded-lg bg-white border border-gray-300 text-left">
+          <div class="appareil-filter flex w-40 h-12 justify-evenly content-center px-3 pt-3 pb-2 rounded-lg bg-white border border-gray-300 text-left">
             <p class="text-base font-light">Appareil</p>
-            <img src="/images/Arrow-down.png" alt="Déplier le filre d'appareils" class="size-3 ml-2 justify-center content-center" />
+            <img src="/images/chevron-down-light.svg" alt="Déplier le filre d'ustensiles" class="size-5 ml-2 justify-center content-center" />
           </div>
-          <div class="ustensil-filter flex w-40 h-12 justify-evenly content-center py-2 rounded-lg bg-white border border-gray-300 text-left">
+          <div class="ustensil-filter flex w-40 h-12 justify-between content-center px-3 pt-3 pb-2 rounded-lg bg-white border border-gray-300 text-left">
             <p class="text-base font-light">Ustensile</p>
-            <img src="/images/Arrow-down.png" alt="Déplier le filre d'ustensiles" class="size-3 ml-2 justify-center content-center" />
+            <img src="/images/chevron-down-light.svg" alt="Déplier le filre d'ustensiles" class="size-5 ml-2 justify-center content-center" />
           </div>
         </div>
         <div class="recipe-counter flex mt-8 mb-8 w-100">

@@ -1,6 +1,6 @@
 import { fetchRecipesData } from "./fetch.js";
 
-export async function createRecipeCard() {
+export function createRecipeCard() {
   const recipeCard = document.createElement("div");
   recipeCard.className = "relative flex w-[380px] h-[700px] bg-white rounded-xl shadow-md overflow-hidden flex-col";
   const recipeList = document.getElementById("recipe-list");
@@ -10,24 +10,22 @@ export async function createRecipeCard() {
 
 export function createCardImageContainer(container) {
   const imgContainer = document.createElement("div");
-  imgContainer.className = "flex w-full h-[240px] rounded-lg bg-blue-500 shadow-md";
+  imgContainer.className = "flex w-full h-[240px] object-contain overflow-hidden rounded-t-lg bg-blue-500";
   container.appendChild(imgContainer);
   return imgContainer;
 }
 
-const img = "images/background-photo.png";
-export function createCardImage(container, img) {
+export function createCardImage(container, image) {
   const recipeImage = document.createElement("img");
-  recipeImage.className = "object-cover w-full h-full";
-  recipeImage.src = img;
+  recipeImage.className = "w-full h-full";
+  recipeImage.src = `JSON-recipes/${image}`;
   container.appendChild(recipeImage);
 }
 
-const timeOverlay = "60min";
-export function createCardImageOverlay(container, timeOverlay) {
+export function createCardImageOverlay(container, time) {
   const overlay = document.createElement("div");
   overlay.className = "absolute top-4 right-4 bg-yellow-400 text-black text-sm font-medium px-3 py-1 rounded-full shadow-md";
-  overlay.textContent = timeOverlay;
+  overlay.textContent = `${time} min`;
   container.appendChild(overlay);
 }
 
@@ -38,11 +36,10 @@ function createRecipeContainer(container) {
   return recipeContainer;
 }
 
-const title = "Tarte aux mirabelles";
-function createTitleRecipe(container, title) {
+function createTitleRecipe(container, name) {
   const titleRecipe = document.createElement("h3");
   titleRecipe.className = "text-base pb-6";
-  titleRecipe.textContent = title;
+  titleRecipe.textContent = name;
   container.appendChild(titleRecipe);
 }
 
@@ -53,17 +50,16 @@ function createRecipeName(container) {
   container.appendChild(recipeName);
 }
 
-function createRecipeDescription(container) {
+function createRecipeDescription(container, description) {
   const recipeDescription = document.createElement("p");
-  recipeDescription.className = "text-sm text-gray-600 pt-3 pb-4";
-  recipeDescription.textContent = "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistance désirée";
+  recipeDescription.className = "text-sm text-gray-600 pt-3 pb-8";
+  recipeDescription.textContent = description;
   container.appendChild(recipeDescription);
-  return recipeDescription;
 }
 
 function createIngredientsContainer(container) {
   const ingredientsContainer = document.createElement("div");
-  ingredientsContainer.className = "ingredients-container flex flex-col font-bold text-lg justify-start items-start w-full px-6 pb-2";
+  ingredientsContainer.className = "ingredients-container px-6 pb-2";
   container.appendChild(ingredientsContainer);
   return ingredientsContainer;
 }
@@ -82,45 +78,40 @@ function createIngredientAndQuantityContainer(container) {
   return ingredientsAndQuantityContainer;
 }
 
-function createIngredientsList(container) {
-  const ingredientsList = document.createElement("div");
-  ingredientsList.className = "ingredients-list grid grid-cols-2 gap-x-4 gap-y-6 px-6 text-sm";
+function createIngredientsList(container, ingredients) {
+  const ingredientsList = document.createElement("ul");
+  ingredientsList.className = "ingredients-list";
+
+  ingredients.forEach(({ ingredient, quantity, unit }) => {
+    const li = document.createElement("li");
+    li.textContent = `${ingredient}${quantity ? `${quantity}${unit || ""}` : ""}`;
+    ingredientsList.appendChild(li);
+  });
+
   container.appendChild(ingredientsList);
-  return ingredientsList;
 }
 
-function createIngredientName(ingredientsList) {
-  const ingredientItem = document.createElement("h5");
-  ingredientItem.className = "ingredient-item";
-  ingredientItem.textContent = "Mirabelles";
-  ingredientsList.appendChild(ingredientItem);
+async function initRecipeCards() {
+  const recipes = await fetchRecipesData();
+
+  recipes.forEach((recipe) => {
+    const { name, image, time, description, ingredients } = recipe;
+
+    const recipeCard = createRecipeCard();
+    const imgContainer = createCardImageContainer(recipeCard);
+    createCardImage(imgContainer, image);
+    createCardImageOverlay(imgContainer, time);
+
+    const recipeContainer = createRecipeContainer(recipeCard);
+    createTitleRecipe(recipeContainer, name);
+    createRecipeName(recipeContainer);
+    createRecipeDescription(recipeContainer, description);
+
+    const ingredientsContainer = createIngredientsContainer(recipeCard);
+    createIngredientsName(ingredientsContainer);
+    const ingredientsAndQtyContainer = createIngredientAndQuantityContainer(ingredientsContainer);
+    createIngredientsList(ingredientsAndQtyContainer, ingredients);
+  });
 }
 
-function createIngredientQuantity(ingredientsList) {
-  const ingredientQuantity = document.createElement("p");
-  ingredientQuantity.className = "ingredient-quantity";
-  ingredientQuantity.textContent = "500g";
-  ingredientsList.appendChild(ingredientQuantity);
-}
-
-async function initRecipeCard() {
-  const recipeCard = await createRecipeCard();
-
-  const imgContainer = createCardImageContainer(recipeCard);
-  createCardImage(imgContainer, img);
-  createCardImageOverlay(imgContainer, timeOverlay);
-
-  const recipeContainer = createRecipeContainer(recipeCard);
-  createTitleRecipe(recipeContainer, title);
-  createRecipeName(recipeContainer);
-  createRecipeDescription(recipeContainer);
-
-  const ingredientsContainer = createIngredientsContainer(recipeCard);
-  createIngredientsName(ingredientsContainer);
-  const ingredientAndQuantityContainer = createIngredientAndQuantityContainer(ingredientsContainer);
-  createIngredientsList(ingredientAndQuantityContainer);
-  createIngredientName(ingredientAndQuantityContainer);
-  createIngredientQuantity(ingredientAndQuantityContainer);
-}
-
-initRecipeCard();
+initRecipeCards();

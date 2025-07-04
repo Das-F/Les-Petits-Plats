@@ -31,7 +31,7 @@
 
         <div class="flex items-center w-full max-w-4xl mt-4 rounded-xl bg-neutral-50">
           <input id="search-input" type="text" placeholder="Rechercher une recette, un ingrédient..." class="w-full h-16 rounded-xl ps-8 pr-16 text-base" />
-          <button type="submit" id="submit-button" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2" aria-label="Rechercher">
+          <button type="submit" id="submit-button" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2">
             <svg class="object-contain w-full h-6 fill-neutral-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="M10 2a8 8 0 105.29 14.29l5.3 5.3a1 1 0 001.42-1.42l-5.3-5.3A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z" />
             </svg>
@@ -43,30 +43,39 @@
     <section class="m-0 p-0">
       <div class="filters flex justify-between items-center px-10 py-4">
         <div class="flex flex-row flex-wrap justify-evenly justify-start gap-10 w-7xl">
-          <div class="flex w-40 bg-white rounded-lg">
-            <select id="ingredients" class="border border-gray-300 rounded-lg px-2 py-1 w-60 bg-white" title="Sélectionner un ingrédient">
-              <option value="" disabled selected>Ingrédient</option>
-              <option value="jus-citron">Jus de citron</option>
-              <option value="glaçons">Glaçons</option>
-              <option value="tomate">Tomate</option>
-              <option value="poulet">Poulet</option>
-              <option value="poivron-rouge">Poivron rouge</option>
-              <option value="thon-miettes">Thon en miettes</option>
-              <option value="vinaigrette">Vinaigrette</option>
-              <option value="gruyere-rape">Gruyère râpé</option>
-              <option value="oeuf">Oeuf</option>
-              <option value="creme-liquide">Crème liquide</option>
-              <option value="creme-coco">Crème de Coco</option>
-              <option value="thon-rouge">Thon rouge</option>
-              <option value="carotte">Carotte</option>
-              <option value="coulis-tomate">Coulis de tomate</option>
-              <option value="huile-olive">Huile d'olive</option>
-              <option value="oeuf-dur">Oeuf dur</option>
-              <option value="pate-feuilletee">Pâte feuilletée</option>
-              <option value="moutarde-dijon">Moutarde de Dijon</option>
-              <option value="sucre-poudre">Sucre en poudre</option>
-              <option value="beurre">Beurre</option>
-            </select>
+          <div class="relative w-40 h-12">
+            <div id="toggleDropdown" class="w-full h-full flex items-center justify-between px-4 py-2 bg-white rounded-lg shadow">
+              <p>Ingrédients</p>
+              <img src="/images/chevron-down-light.svg" alt="Déplier le filre ingrédients" id="chevronIcon" class="size-5 ml-2 justify-center content-center" />
+            </div>
+            <div id="ingredientsMenu" class="absolute z-10 mt-2 w-full bg-white rounded-lg shadow-lg p-4 space-y-2 hidden">
+              <div class="flex items-center border-2 border-gray-300 mt--2 px-2">
+                <input id="searchInput" type="text" class="w-full py-1 outline-none" />
+                <img src="/images/magnifying-glass-thin-input.svg" alt="Icône de recherche" class="size-4 ml-2 justify-center content-center" />
+              </div>
+              <ul id="ingredientList" class="rounded-lg py-1 w-40 h-100 overflow-hidden bg-white">
+                <li class="ingredient-item-list">Jus de citron</li>
+                <li class="ingredient-item-list">Glaçons</li>
+                <li class="ingredient-item-list">Tomate</li>
+                <li class="ingredient-item-list">Poulet</li>
+                <li class="ingredient-item-list">Poivron rouge</li>
+                <li class="ingredient-item-list">Thon en miettes</li>
+                <li class="ingredient-item-list">Vinaigrette</li>
+                <li class="ingredient-item-list">Gruyère râpé</li>
+                <li class="ingredient-item-list">Oeuf</li>
+                <li class="ingredient-item-list">Crème liquide</li>
+                <li class="ingredient-item-list">Crème de coco</li>
+                <li class="ingredient-item-list">Thon rouge</li>
+                <li class="ingredient-item-list">Carotte</li>
+                <li class="ingredient-item-list">Coulis de tomate</li>
+                <li class="ingredient-item-list">Huile d'olive</li>
+                <li class="ingredient-item-list">Oeuf dur</li>
+                <li class="ingredient-item-list">Pâte feuilletée</li>
+                <li class="ingredient-item-list">Moutarde de Dijon</li>
+                <li class="ingredient-item-list">Sucre en poudre</li>
+                <li class="ingredient-item-list">Beurre</li>
+              </ul>
+            </div>
           </div>
 
           <div class="appareil-filter flex w-40 h-12 justify-evenly content-center px-3 pt-3 pb-2 rounded-lg bg-white border border-gray-300 text-left">
@@ -123,5 +132,6 @@
       </div>
     </section>
     <script type="module" src="scripts/main.js"></script>
+    <script src="scripts/ingredients-filter.js"></script>
   </body>
 </html>

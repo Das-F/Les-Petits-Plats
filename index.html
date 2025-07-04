@@ -31,10 +31,9 @@
 
         <div class="flex items-center w-full max-w-4xl mt-4 rounded-xl bg-neutral-50">
           <input id="search-input" type="text" placeholder="Rechercher une recette, un ingrédient..." class="w-full h-16 rounded-xl ps-8 pr-16 text-base" />
-          <button type="submit" id="submit-button" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2">
-            <svg class="object-contain w-full h-6 fill-neutral-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M10 2a8 8 0 105.29 14.29l5.3 5.3a1 1 0 001.42-1.42l-5.3-5.3A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z" />
-            </svg>
+          <button type="submit" id="submit-button" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2" aria-label="Rechercher">
+            <img src="/images/magnifying-glass-search-icon.svg" alt="Icône de recherche" class="icon-search w-6 h-6" />
+            <!-- <img src="/images/magnifying-glass-search-icon-black.svg" alt="Icône de recherche" class="icon-search-hidden w-6 h-6" /> -->
           </button>
         </div>
       </div>
@@ -50,7 +49,8 @@
             </div>
             <div id="ingredientsMenu" class="absolute z-10 mt-2 w-full bg-white rounded-lg shadow-lg p-4 space-y-2 hidden">
               <div class="flex items-center border-2 border-gray-300 mt--2 px-2">
-                <input id="searchInput" type="text" class="w-full py-1 outline-none" />
+                <label for="searchInput" class="sr-only">Rechercher un ingrédient</label>
+                <input id="searchInput" type="text" class="w-full py-1 outline-none" title="Rechercher un ingrédient" placeholder=" " />
                 <img src="/images/magnifying-glass-thin-input.svg" alt="Icône de recherche" class="size-4 ml-2 justify-center content-center" />
               </div>
               <ul id="ingredientList" class="rounded-lg py-1 w-40 h-100 overflow-hidden bg-white">

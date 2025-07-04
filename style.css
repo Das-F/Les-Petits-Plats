@@ -14,10 +14,23 @@ h1 {
   transition-duration: 0.6s;
 }
 
-#submit-button > svg:hover {
-  color: black;
-  transition-duration: 0.6s;
+.icon-search {
+  color: white;
+  transition: color 0.3s ease;
 }
+
+.icon-search:hover {
+  color: black;
+  /* visibility: hidden; */
+}
+
+/* .icon-search-hidden {
+  visibility: hidden;
+}
+
+.icon-search-hidden:hover {
+  visibility: visible;
+} */
 
 .filters > p {
   font-family: "Manrope", sans-serif;

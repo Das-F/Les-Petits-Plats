@@ -2,13 +2,13 @@ import { fetchRecipesData } from "./fetch.js";
 
 export async function createRecipeCard() {
   const recipeCard = document.createElement("div");
-  recipeCard.className = "relative flex w-[380px] h-[700px] bg-white rounded-xl shadow-md overflow-hidden flex flex-col";
+  recipeCard.className = "relative flex w-[380px] h-[700px] bg-white rounded-xl shadow-md overflow-hidden flex-col";
   const recipeList = document.getElementById("recipe-list");
   recipeList.appendChild(recipeCard);
   return recipeCard;
 }
 
-export async function createCardImageContainer(container) {
+export function createCardImageContainer(container) {
   const imgContainer = document.createElement("div");
   imgContainer.className = "flex w-full h-[240px] rounded-lg bg-blue-500 shadow-md";
   container.appendChild(imgContainer);
@@ -16,7 +16,7 @@ export async function createCardImageContainer(container) {
 }
 
 const img = "images/background-photo.png";
-export async function createCardImage(container, img) {
+export function createCardImage(container, img) {
   const recipeImage = document.createElement("img");
   recipeImage.className = "object-cover w-full h-full";
   recipeImage.src = img;
@@ -24,26 +24,26 @@ export async function createCardImage(container, img) {
 }
 
 const timeOverlay = "60min";
-export async function createCardImageOverlay(container, timeOverlay) {
+export function createCardImageOverlay(container, timeOverlay) {
   const overlay = document.createElement("div");
   overlay.className = "absolute top-4 right-4 bg-yellow-400 text-black text-sm font-medium px-3 py-1 rounded-full shadow-md";
   overlay.textContent = timeOverlay;
   container.appendChild(overlay);
 }
 
-function createTitleAndRecipeDescription(container) {
-  const titleAndRecipeDescription = document.createElement("div");
-  titleAndRecipeDescription.className = "recipe-title-and-description flex flex-col font-bold text-lg justify-start items-start w-full px-6 pt-6 pb-2";
-  container.appendChild(titleAndRecipeDescription);
-  return titleAndRecipeDescription;
+function createRecipeContainer(container) {
+  const recipeContainer = document.createElement("div");
+  recipeContainer.className = "recipe-description flex flex-col font-bold text-lg justify-start items-start w-full px-6 pt-6 pb-2";
+  container.appendChild(recipeContainer);
+  return recipeContainer;
 }
 
 const title = "Tarte aux mirabelles";
 function createTitleRecipe(container, title) {
-  const titleDescriptionRecipe = document.createElement("h3");
-  titleDescriptionRecipe.className = "text-base pb-6";
-  titleDescriptionRecipe.textContent = title;
-  container.appendChild(titleDescriptionRecipe);
+  const titleRecipe = document.createElement("h3");
+  titleRecipe.className = "text-base pb-6";
+  titleRecipe.textContent = title;
+  container.appendChild(titleRecipe);
 }
 
 function createRecipeName(container) {
@@ -55,47 +55,72 @@ function createRecipeName(container) {
 
 function createRecipeDescription(container) {
   const recipeDescription = document.createElement("p");
-  recipeDescription.className = "text-sm text-gray-600 pt-3 pb-8";
-  recipeDescription.textContent = "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée";
+  recipeDescription.className = "text-sm text-gray-600 pt-3 pb-4";
+  recipeDescription.textContent = "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistance désirée";
   container.appendChild(recipeDescription);
+  return recipeDescription;
 }
 
-function createIngredients(container) {
-  const ingredients = document.createElement("div");
-  ingredients.className = "ingredients";
-  container.appendChild(ingredients);
-  return ingredients;
+function createIngredientsContainer(container) {
+  const ingredientsContainer = document.createElement("div");
+  ingredientsContainer.className = "ingredients-container flex flex-col font-bold text-lg justify-start items-start w-full px-6 pb-2";
+  container.appendChild(ingredientsContainer);
+  return ingredientsContainer;
 }
 
 function createIngredientsName(container) {
   const ingredientsName = document.createElement("h4");
-  ingredientsName.className = "ingredients-name";
+  ingredientsName.className = "ingredients-name pb-2";
   ingredientsName.textContent = "Ingrédients";
   container.appendChild(ingredientsName);
 }
 
+function createIngredientAndQuantityContainer(container) {
+  const ingredientsAndQuantityContainer = document.createElement("div");
+  ingredientsAndQuantityContainer.className = "ingredient-quantity-container";
+  container.appendChild(ingredientsAndQuantityContainer);
+  return ingredientsAndQuantityContainer;
+}
+
 function createIngredientsList(container) {
-  const ingredientsList = document.createElement("ul");
-  ingredientsList.className = "ingredients-list";
-  ingredientsList.textContent = "Ingrédients : 1 kg de mirabelles, 200 g de sucre, 1 pâte brisée, 3 œufs, 100 g de beurre fondu";
+  const ingredientsList = document.createElement("div");
+  ingredientsList.className = "ingredients-list grid grid-cols-2 gap-x-4 gap-y-6 px-6 text-sm";
   container.appendChild(ingredientsList);
   return ingredientsList;
+}
+
+function createIngredientName(ingredientsList) {
+  const ingredientItem = document.createElement("h5");
+  ingredientItem.className = "ingredient-item";
+  ingredientItem.textContent = "Mirabelles";
+  ingredientsList.appendChild(ingredientItem);
+}
+
+function createIngredientQuantity(ingredientsList) {
+  const ingredientQuantity = document.createElement("p");
+  ingredientQuantity.className = "ingredient-quantity";
+  ingredientQuantity.textContent = "500g";
+  ingredientsList.appendChild(ingredientQuantity);
 }
 
 async function initRecipeCard() {
   const recipeCard = await createRecipeCard();
 
-  const imgContainer = await createCardImageContainer(recipeCard);
-  await createCardImage(imgContainer, img);
-  await createCardImageOverlay(imgContainer, timeOverlay);
+  const imgContainer = createCardImageContainer(recipeCard);
+  createCardImage(imgContainer, img);
+  createCardImageOverlay(imgContainer, timeOverlay);
 
-  const titleAndRecipeDescription = recipe(recipeCard);
-  createTitleRecipe(titleAndRecipeDescription, title);
-  createRecipeName(titleAndRecipeDescription);
-  createRecipeDescription(titleAndRecipeDescription);
+  const recipeContainer = createRecipeContainer(recipeCard);
+  createTitleRecipe(recipeContainer, title);
+  createRecipeName(recipeContainer);
+  createRecipeDescription(recipeContainer);
 
-  const ingredients = createIngredients(recipeCard);
-  createIngredientsName(ingredients, title);
-  createIngredientsList(ingredients);
+  const ingredientsContainer = createIngredientsContainer(recipeCard);
+  createIngredientsName(ingredientsContainer);
+  const ingredientAndQuantityContainer = createIngredientAndQuantityContainer(ingredientsContainer);
+  createIngredientsList(ingredientAndQuantityContainer);
+  createIngredientName(ingredientAndQuantityContainer);
+  createIngredientQuantity(ingredientAndQuantityContainer);
 }
+
 initRecipeCard();

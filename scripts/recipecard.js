@@ -2,7 +2,7 @@ import { fetchRecipesData } from "./fetch.js";
 
 export function createRecipeCard() {
   const recipeCard = document.createElement("div");
-  recipeCard.className = "relative flex w-[380px] h-[700px] bg-white rounded-xl shadow-md overflow-hidden flex-col";
+  recipeCard.className = "relative flex w-[380px] h-[680px] bg-white rounded-xl shadow-md overflow-hidden flex-col";
   const recipeList = document.getElementById("recipe-list");
   recipeList.appendChild(recipeCard);
   return recipeCard;
@@ -10,14 +10,14 @@ export function createRecipeCard() {
 
 export function createCardImageContainer(container) {
   const imgContainer = document.createElement("div");
-  imgContainer.className = "flex w-full h-[240px] object-contain overflow-hidden rounded-t-lg bg-blue-500";
+  imgContainer.className = "flex w-full h-[240px] rounded-t-lg bg-blue-500";
   container.appendChild(imgContainer);
   return imgContainer;
 }
 
 export function createCardImage(container, image) {
   const recipeImage = document.createElement("img");
-  recipeImage.className = "w-full h-full";
+  recipeImage.className = "object-cover w-full h-full";
   recipeImage.src = `JSON-recipes/${image}`;
   container.appendChild(recipeImage);
 }
@@ -31,7 +31,7 @@ export function createCardImageOverlay(container, time) {
 
 function createRecipeContainer(container) {
   const recipeContainer = document.createElement("div");
-  recipeContainer.className = "recipe-description flex flex-col font-bold text-lg justify-start items-start w-full px-6 pt-6 pb-2";
+  recipeContainer.className = "recipe-description flex flex-col font-bold text-lg justify-start items-start w-full max-h-46 overflow-hidden px-6 pt-6 pb-8";
   container.appendChild(recipeContainer);
   return recipeContainer;
 }
@@ -52,14 +52,14 @@ function createRecipeName(container) {
 
 function createRecipeDescription(container, description) {
   const recipeDescription = document.createElement("p");
-  recipeDescription.className = "text-sm text-gray-600 pt-3 pb-8";
+  recipeDescription.className = "text-sm text-gray-600  pt-3";
   recipeDescription.textContent = description;
   container.appendChild(recipeDescription);
 }
 
 function createIngredientsContainer(container) {
   const ingredientsContainer = document.createElement("div");
-  ingredientsContainer.className = "ingredients-container px-6 pb-2";
+  ingredientsContainer.className = "ingredients-container px-6 pt-6 pb-4";
   container.appendChild(ingredientsContainer);
   return ingredientsContainer;
 }
@@ -80,11 +80,20 @@ function createIngredientAndQuantityContainer(container) {
 
 function createIngredientsList(container, ingredients) {
   const ingredientsList = document.createElement("ul");
-  ingredientsList.className = "ingredients-list";
+  ingredientsList.className = "ingredients-list grid grid-cols-2 gap-x-4 gap-y-6 text-sm";
 
   ingredients.forEach(({ ingredient, quantity, unit }) => {
     const li = document.createElement("li");
-    li.textContent = `${ingredient}${quantity ? `${quantity}${unit || ""}` : ""}`;
+    li.textContent = ingredient;
+    li.className = "ingredient-item flex flex-col max-w-190";
+
+    if (quantity) {
+      const quantitySpan = document.createElement("span");
+      quantitySpan.className = "ingredient-quantity";
+      quantitySpan.textContent = `${quantity}${unit ? ` ${unit}` : ""}`;
+
+      li.appendChild(quantitySpan);
+    }
     ingredientsList.appendChild(li);
   });
 

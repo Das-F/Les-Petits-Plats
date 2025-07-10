@@ -34,8 +34,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Select ingredient
   items.forEach((item) => {
     item.addEventListener("click", () => {
-      items.forEach((i) => i.classList.remove("bg-yellow-300"));
-      item.classList.add("bg-yellow-300");
+      // Toggle la sélection sur l'élément cliqué
+      const isSelected = item.classList.contains("bg-yellow-300");
+      if (isSelected) {
+        // Si déjà sélectionné, on enlève la sélection
+        item.classList.remove("bg-yellow-300", "font-bold");
+      } else {
+        // Sinon, on ajoute la sélection
+        item.classList.add("bg-yellow-300", "font-bold");
+      }
     });
   });
 });

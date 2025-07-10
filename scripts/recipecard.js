@@ -1,6 +1,4 @@
-import { fetchRecipesData } from "./fetch.js";
-
-export function createRecipeCard() {
+function createRecipeCard() {
   const recipeCard = document.createElement("div");
   recipeCard.className = "relative flex w-[380px] h-[680px] bg-white rounded-xl shadow-md overflow-hidden flex-col";
   const recipeList = document.getElementById("recipe-list");
@@ -8,21 +6,21 @@ export function createRecipeCard() {
   return recipeCard;
 }
 
-export function createCardImageContainer(container) {
+function createCardImageContainer(container) {
   const imgContainer = document.createElement("div");
   imgContainer.className = "flex w-full h-[240px] rounded-t-lg bg-blue-500";
   container.appendChild(imgContainer);
   return imgContainer;
 }
 
-export function createCardImage(container, image) {
+function createCardImage(container, image) {
   const recipeImage = document.createElement("img");
   recipeImage.className = "object-cover w-full h-full";
   recipeImage.src = `JSON-recipes/${image}`;
   container.appendChild(recipeImage);
 }
 
-export function createCardImageOverlay(container, time) {
+function createCardImageOverlay(container, time) {
   const overlay = document.createElement("div");
   overlay.className = "absolute top-4 right-4 bg-yellow-400 text-black text-sm font-medium px-3 py-1 rounded-full shadow-md";
   overlay.textContent = `${time} min`;
@@ -100,9 +98,7 @@ function createIngredientsList(container, ingredients) {
   container.appendChild(ingredientsList);
 }
 
-async function initRecipeCards() {
-  const recipes = await fetchRecipesData();
-
+export async function initRecipeCards(recipes) {
   recipes.forEach((recipe) => {
     const { name, image, time, description, ingredients } = recipe;
 
@@ -122,5 +118,3 @@ async function initRecipeCards() {
     createIngredientsList(ingredientsAndQtyContainer, ingredients);
   });
 }
-
-initRecipeCards();

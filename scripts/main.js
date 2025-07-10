@@ -1,2 +1,6 @@
 import { fetchRecipesData } from "./fetch.js";
-import { createRecipeCard } from "./recipecard.js";
+import { initRecipeCards } from "./recipecard.js";
+
+const recipes = await fetchRecipesData();
+
+initRecipeCards(recipes);

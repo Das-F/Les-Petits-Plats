@@ -1,3 +1,7 @@
+import { getIngredients } from "./filters";
+import { getAppareils } from "./filters";
+import { getUstensiles } from "./filters";
+
 function createItemList() {
   const item = document.createElement("li");
   item.className = "item-list";
@@ -12,4 +16,17 @@ export function createIngredientList(ingredients) {
       ingredientList.appendChild(li);
     });
   }
+}
+
+const toggleButton = document.getElementById("toggleDropdown");
+const chevronIcon = document.getElementById("chevronIcon");
+
+function openCloseFilterMenu(toggleButton, menu, chevronIcon, searchInput) {
+  toggleButton.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+    chevronIcon.classList.toggle("rotate-180");
+    if (!menu.classList.contains("hidden")) {
+      searchInput.focus();
+    }
+  });
 }

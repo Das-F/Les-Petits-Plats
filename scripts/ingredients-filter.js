@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     console.warn("Un ou plusieurs éléments requis sont manquants dans le DOM.");
     return;
   }
-  // Open/close ingredient menu
-  toggleButton.addEventListener("click", () => {
-    ingredientsMenu.classList.toggle("hidden");
-    chevronIcon.classList.toggle("rotate-180");
-    if (!ingredientsMenu.classList.contains("hidden")) {
-      searchIngredientInput.focus();
-    }
-  });
+  // Open/close menu
+  // toggleButton.addEventListener("click", () => {
+  //   ingredientsMenu.classList.toggle("hidden");
+  //   chevronIcon.classList.toggle("rotate-180");
+  //   if (!ingredientsMenu.classList.contains("hidden")) {
+  //     searchIngredientInput.focus();
+  //   }
+  // });
   // Search ingredient (delegation)
   searchIngredientInput.addEventListener("input", () => {
     const query = searchIngredientInput.value.toLowerCase();

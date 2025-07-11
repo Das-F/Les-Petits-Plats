@@ -1,6 +1,4 @@
 import { getIngredients } from "./filters";
-import { getAppareils } from "./filters";
-import { getUstensiles } from "./filters";
 
 function createItemList() {
   const item = document.createElement("li");

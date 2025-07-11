@@ -12,8 +12,8 @@ Il comprend une interface utilisateur complète ainsi que deux versions d'algori
 
 Deux branches expérimentales ont été créées pour tester et comparer différentes implémentations du moteur de recherche :
 
-- `algo-v1` : Première version de l’algorithme de recherche.
-- `algo-v2` : Deuxième version de l’algorithme, avec une approche différente.
+- `search-algorithm-1` : Première version de l’algorithme de recherche.
+- `search-algorithm-2` : Deuxième version de l’algorithme, avec une approche différente.
 
 Chacune de ces branches contient uniquement les modifications liées à l’algorithme, afin de pouvoir tester, comparer et analyser les performances de manière isolée.
 

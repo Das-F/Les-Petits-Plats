@@ -1,7 +1,8 @@
 const searchInput = document.getElementById("search-input");
 const searchResults = document.createElement("div");
-searchResults.className = "search-results";
-searchInput.parentNode.appendChild(searchResults);
+searchResults.className = "search-results text-white mt-4";
+const mainHead = document.querySelector(".main-head");
+mainHead.appendChild(searchResults);
 
 fetch("recipes.json")
   .then((response) => response.json())
@@ -14,6 +15,13 @@ function createSearchAlgorithm() {
   searchInput.addEventListener("input", (e) => {
     const value = e.target.value;
     console.log(value);
+
+    if (value.length < 2) {
+      searchResults.innerHTML = "Merci de saisir au moins 2 caractères.";
+    } else {
+      searchResults.innerHTML = "";
+      return;
+    }
   });
 }
 createSearchAlgorithm();

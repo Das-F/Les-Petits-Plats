@@ -1,5 +1,3 @@
-import { getIngredients } from "./filters";
-
 function createItemList() {
   const item = document.createElement("li");
   item.className = "item-list";
@@ -16,15 +14,15 @@ export function createIngredientList(ingredients) {
   }
 }
 
-const toggleButton = document.getElementById("toggleDropdown");
-const chevronIcon = document.getElementById("chevronIcon");
+// const toggleButton = document.getElementById("toggleDropdown");
+// const chevronIcon = document.getElementById("chevronIcon");
 
-function openCloseFilterMenu(toggleButton, menu, chevronIcon, searchInput) {
-  toggleButton.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-    chevronIcon.classList.toggle("rotate-180");
-    if (!menu.classList.contains("hidden")) {
-      searchInput.focus();
-    }
-  });
-}
+// function openCloseFilterMenu(toggleButton, menu, chevronIcon, searchInput) {
+//   toggleButton.addEventListener("click", () => {
+//     menu.classList.toggle("hidden");
+//     chevronIcon.classList.toggle("rotate-180");
+//     if (!menu.classList.contains("hidden")) {
+//       searchInput.focus();
+//     }
+//   });
+// }

@@ -48,10 +48,10 @@
               <img src="/images/chevron-down-light.svg" alt="Déplier le filre ingrédients" id="chevronIcon" class="size-5 ml-2 justify-center content-center" />
             </div>
             <div id="ingredientsMenu" class="absolute flex flex-col items-center z-10 -mt-3px w-full bg-white rounded-lg shadow-lg p-4 space-y-2 hidden">
-              <div>
+              <div class="input-wrapper relative inline-block">
                 <label for="searchIngredientInput" class="sr-only">Rechercher un ingrédient</label>
                 <input id="searchIngredientInput" type="text" class="w-full py-1 outline-none border-2 border-gray-300" title="Rechercher un ingrédient" placeholder=" " />
-                <img src="/images/magnifying-glass-thin-input.svg" alt="Icône de recherche" class="size-4 ml-2 justify-center content-center" />
+                <img src="/images/magnifying-glass-thin-input.svg" alt="Icône de recherche" class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"" />
               </div>
               <ul id="ingredientList" class="rounded-lg py-1 w-40 h-100 overflow-scroll bg-white"></ul>
             </div>
@@ -73,11 +73,11 @@
     </section>
     <section id="recipe-list" class="recipe-list flex flex-wrap gap-x-12 gap-y-12 m-0 px-10"></section>
     <script type="module" src="scripts/main.js"></script>
-    <script src="scripts/fetch.js"></script>
-    <script src="scripts/recipecard.js"></script>
+    <script type="module" src="scripts/fetch.js"></script>
+    <script type="module" src="scripts/recipecard.js"></script>
     <script src="scripts/ingredients-filter.js"></script>
     <script src="scripts/algorithm-1.js"></script>
-    <script src="filters.js"></script>
+    <script type="module" src="scripts/filters.js"></script>
     <script type="module" src="scripts/displayDropdown.js"></script>
   </body>
 </html>

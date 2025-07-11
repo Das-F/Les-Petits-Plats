@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
       searchIngredientInput.focus();
     }
   });
-  // Search ingredient (delegation)
+  // Search ingredient
   searchIngredientInput.addEventListener("input", () => {
     const query = searchIngredientInput.value.toLowerCase();
     const items = document.querySelectorAll(".ingredient-item");
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       item.style.display = text.includes(query) ? "block" : "none";
     });
   });
-  // Select ingredient (delegation)
+  // Select ingredient
   const ingredientList = document.getElementById("ingredientList");
   if (ingredientList) {
     ingredientList.addEventListener("click", (e) => {

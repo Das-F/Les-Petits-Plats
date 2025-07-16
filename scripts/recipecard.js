@@ -8,7 +8,7 @@ function createRecipeCard() {
 
 function createCardImageContainer(container) {
   const imgContainer = document.createElement("div");
-  imgContainer.className = "flex w-full h-[240px] rounded-t-lg bg-blue-500";
+  imgContainer.className = "flex w-full h-[240px] rounded-t-lg";
   container.appendChild(imgContainer);
   return imgContainer;
 }

@@ -11,3 +11,13 @@ export function getIngredients(recipes) {
   });
   return Array.from(ingredientSet);
 }
+
+export function getAppareils(recipes) {
+  const appareilSet = new Set();
+  recipes.forEach((recipe) => {
+    if (recipe.appliance) {
+      appareilSet.add(recipe.appliance);
+    }
+  });
+  return Array.from(appareilSet);
+}

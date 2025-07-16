@@ -6,12 +6,17 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
   const mainHead = document.querySelector(".main-head");
   mainHead.appendChild(searchResults);
   const recipeList = document.querySelector(".recipe-list");
+  const MAX_LENGTH_SEARCH = 3;
 
   searchInput.addEventListener("input", (e) => {
     const value = e.target.value.trim().toLowerCase();
     recipeList.innerHTML = "";
-    if (value.length < 2) {
-      searchResults.innerHTML = "Merci de saisir au moins 2 caractères.";
+    if (value.length === 0) {
+      searchResults.innerHTML = "";
+      displayRecipes(recipes);
+    } else if (value.length < MAX_LENGTH_SEARCH) {
+      searchResults.innerHTML = `Merci de saisir au moins ${MAX_LENGTH_SEARCH} caractères.`;
+      displayRecipes(recipes);
     } else {
       searchResults.innerHTML = "";
       const results = recipes.filter((recipe) => {
@@ -21,7 +26,7 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
         return recipeName.includes(value) || recipeDescription.includes(value) || recipeIngredients.some((ingredient) => ingredient.includes(value));
       });
       if (results.length === 0) {
-        recipeList.innerHTML = "Aucun résultat trouvé.";
+        searchResults.innerText = `Aucune recette ne contient ‘${value}’ vous pouvez chercher « tarte aux pommes », « poisson » etc.`;
       } else {
         results.sort((a, b) => a.name.localeCompare(b.name));
         displayRecipes(results);

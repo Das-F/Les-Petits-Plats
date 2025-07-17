@@ -21,3 +21,15 @@ export function getAppareils(recipes) {
   });
   return Array.from(appareilSet);
 }
+
+export function getUstensiles(recipes) {
+  const ustensileSet = new Set();
+  recipes.forEach((recipe) => {
+    if (Array.isArray(recipe.ustensils)) {
+      recipe.ustensils.forEach((ustensil) => {
+        ustensileSet.add(ustensil);
+      });
+    }
+  });
+  return Array.from(ustensileSet);
+}

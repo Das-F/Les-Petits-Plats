@@ -45,22 +45,23 @@ export function createIngredientList(ingredients) {
 //   });
 // }
 
-const btn = document.querySelector(".dropdown-filter"); // parent du chevron
-const chevronIcon = document.getElementById("chevronIcon");
-const dropdownList = document.querySelector(".dropdown-menu");
+// TEST 2//
+// const btn = document.querySelector(".dropdown-filter"); // parent du chevron
+// const chevronIcon = document.getElementById("chevronIcon");
+// const dropdownList = document.querySelector(".dropdown-menu");
 
-btn.addEventListener("click", () => {
-  const isClosed = dropdownList.classList.contains("max-h-0");
+// btn.addEventListener("click", () => {
+//   const isClosed = dropdownList.classList.contains("max-h-0");
 
-  if (isClosed) {
-    chevronIcon.classList.add("rotate-180");
-    dropdownList.classList.remove("max-h-0");
-    dropdownList.classList.add("max-h-96");
-    console.log("Menu ouvert");
-  } else {
-    chevronIcon.classList.remove("rotate-180");
-    dropdownList.classList.remove("max-h-96");
-    dropdownList.classList.add("max-h-0");
-    console.log("Menu fermé");
-  }
-});
+//   if (isClosed) {
+//     chevronIcon.classList.add("rotate-180");
+//     dropdownList.classList.remove("max-h-0");
+//     dropdownList.classList.add("max-h-96");
+//     console.log("Menu ouvert");
+//   } else {
+//     chevronIcon.classList.remove("rotate-180");
+//     dropdownList.classList.remove("max-h-96");
+//     dropdownList.classList.add("max-h-0");
+//     console.log("Menu fermé");
+//   }
+// });

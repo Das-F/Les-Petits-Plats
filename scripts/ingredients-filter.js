@@ -3,10 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const ingredientsMenu = document.getElementById("ingredientsMenu");
   const chevronIcon = document.getElementById("chevronIcon");
   const searchIngredientInput = document.getElementById("searchIngredientInput");
-  if (!toggleButton || !ingredientsMenu || !chevronIcon || !searchIngredientInput) {
+  const ingredientList = document.getElementById("ingredientList");
+
+  // Verification
+  if (!toggleButton || !ingredientsMenu || !chevronIcon || !searchIngredientInput || !ingredientList) {
     console.warn("Un ou plusieurs éléments requis sont manquants dans le DOM.");
     return;
   }
+
   // Open/close menu
   toggleButton.addEventListener("click", () => {
     ingredientsMenu.classList.toggle("hidden");
@@ -15,28 +19,23 @@ document.addEventListener("DOMContentLoaded", () => {
       searchIngredientInput.focus();
     }
   });
+
   // Search ingredient
   searchIngredientInput.addEventListener("input", () => {
     const query = searchIngredientInput.value.toLowerCase();
     const items = document.querySelectorAll(".ingredient-item");
     items.forEach((item) => {
-      const text = item.textContent?.toLowerCase() || "";
+      const text = item.textContent.toLowerCase();
       item.style.display = text.includes(query) ? "block" : "none";
     });
   });
-  // Select ingredient
-  const ingredientList = document.getElementById("ingredientList");
-  if (ingredientList) {
-    ingredientList.addEventListener("click", (e) => {
-      const item = e.target.closest(".ingredient-item");
-      if (item) {
-        const isSelected = item.classList.contains("bg-yellow-300");
-        if (isSelected) {
-          item.classList.remove("bg-yellow-300", "font-bold");
-        } else {
-          item.classList.add("bg-yellow-300", "font-bold");
-        }
-      }
-    });
-  }
+
+  // Selectingredient
+  ingredientList.addEventListener("click", (e) => {
+    const item = e.target.closest(".ingredient-item");
+    if (item) {
+      item.classList.toggle("bg-yellow-300");
+      item.classList.toggle("font-bold");
+    }
+  });
 });

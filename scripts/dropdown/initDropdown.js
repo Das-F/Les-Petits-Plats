@@ -4,7 +4,7 @@ export function initDropdown(filterContainerId, searchInputId) {
   const chevronIcon = document.querySelector(`#${filterContainerId} .chevron-icon`);
   const searchInput = document.getElementById(searchInputId);
   const itemList = document.querySelector(`#${filterContainerId} .item-list`);
-  console.log(itemList);
+
   // Open/close menu
   toggleButton.addEventListener("click", () => {
     menu.classList.toggle("hidden");

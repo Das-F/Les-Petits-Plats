@@ -1,9 +1,9 @@
 import { fetchRecipesData } from "./fetch.js";
 import { initRecipeCards } from "./recipecard.js";
-import { getIngredients, getAppareils, getUstensiles } from "./getDataDropdown.js";
-import { createDropdownList } from "./displayDropdown.js";
-import { createSearchAlgorithm } from "./search-algorithm.js";
-import { initDropdown } from "./initDropdown.js";
+import { getIngredients, getAppareils, getUstensiles } from "./dropdown/getDataDropdown.js";
+import { createDropdownList } from "./dropdown/displayDropdown.js";
+import { createSearchAlgorithm } from "../scripts-algo/search-algorithm.js";
+import { initDropdown } from "./dropdown/initDropdown.js";
 
 const recipes = await fetchRecipesData();
 const allIngredients = getIngredients(recipes);

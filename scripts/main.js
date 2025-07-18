@@ -2,12 +2,14 @@ import { fetchRecipesData } from "./fetch.js";
 import { initRecipeCards } from "./recipecard.js";
 import { getIngredients } from "./filters.js";
 import { getAppareils } from "./filters.js";
+import { getUstensiles } from "./filters.js";
 import { createIngredientList } from "./displayDropdown.js";
 import { createSearchAlgorithm } from "./search-algorithm.js";
 
 const recipes = await fetchRecipesData();
 const allIngredients = getIngredients(recipes);
 const allAppareils = getAppareils(recipes);
+const allUstensiles = getUstensiles(recipes);
 initRecipeCards(recipes);
 createIngredientList(allIngredients);
 createSearchAlgorithm(recipes, initRecipeCards);

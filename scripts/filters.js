@@ -32,7 +32,6 @@ export function getAppareils(recipes) {
 
 export function getUstensiles(recipes) {
   const ustensilesSet = new Set();
-
   recipes.forEach((recipe) => {
     if (Array.isArray(recipe.ustensils)) {
       recipe.ustensils.forEach((ustensil) => {
@@ -40,6 +39,7 @@ export function getUstensiles(recipes) {
         if (name) {
           ustensilesSet.add(name);
         }
+
         console.log("Ustensile ajouté");
       });
     }

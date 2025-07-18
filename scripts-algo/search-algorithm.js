@@ -19,12 +19,23 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
       displayRecipes(recipes);
     } else {
       searchResults.innerHTML = "";
-      const results = recipes.filter((recipe) => {
-        //  Creation of a search algorithm that filters recipes based on the input value.
-        const fields = [recipe.name?.toLowerCase() || "", recipe.description?.toLowerCase() || "", ...(recipe.ingredients || []).map((ing) => ing.ingredient?.toLowerCase() || "")];
-        // Check if any of the fields contain the search value
-        return fields.some((field) => field.includes(value));
-      });
+      const results = [];
+      for (let i = 0; i < recipes.length; i++) {
+        const recipe = recipes[i];
+        const name = recipe.name?.toLowerCase() || "";
+        const description = recipe.description?.toLowerCase() || "";
+        let found = name.includes(value) || description.includes(value);
+        if (!found && Array.isArray(recipe.ingredients)) {
+          for (let j = 0; j < recipe.ingredients.length; j++) {
+            const ing = recipe.ingredients[j].ingredient?.toLowerCase() || "";
+            if (ing.includes(value)) {
+              found = true;
+              break;
+            }
+          }
+        }
+        if (found) results.push(recipe);
+      }
       if (results.length === 0) {
         searchResults.innerText = `Aucune recette ne contient '${value}' vous pouvez chercher « tarte aux pommes », « poisson » etc.`;
       } else {

@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap" rel="stylesheet" type="text/css" />
-
     <title>Les Petits Plats</title>
   </head>
   <body class="max-w-screen mx-auto">
@@ -18,17 +17,14 @@
         <img src="/images/logo-Les-petits-plats.png" alt="Logo Les Petits Plats" class="h-6" />
         <img src="/images/Logo-round.png" alt="Logo rond Les Petits Plats" class="h-6" />
       </div>
-
       <div class="relative inset-x-0 top-0 h-40px overflow-hidden">
         <img src="images/background-photo.png" alt="Photo d'accueil Les Petits Plats" class="object-contain w-full h-50px" />
       </div>
-
       <div class="main-head absolute inset-0 flex flex-col justify-center items-center text-center px-20 w-400px z-200">
         <h1 class="text-3xl md:text-5xl mb-6">
           Cherchez parmi plus de 1500 recettes<br />
           du quotidien, simples et délicieuses
         </h1>
-
         <div class="flex items-center w-full max-w-4xl mt-4 rounded-xl bg-neutral-50">
           <input id="search-input" type="text" placeholder="Rechercher une recette, un ingrédient..." class="w-full h-16 rounded-xl ps-8 pr-16 text-base" />
           <button type="submit" id="submit-button" class="flex justify-center items-center bg-black text-white w-12 h-12 rounded-xl p-2 mr-2" aria-label="Rechercher">
@@ -38,43 +34,48 @@
         </div>
       </div>
     </header>
-
     <section class="m-0 p-0">
       <div class="filters flex justify-between items-center px-10 py-4">
         <div class="flex flex-row flex-wrap justify-evenly justify-start gap-10 w-7xl">
-          <div class="relative w-40 h-12">
-            <div id="toggleDropdown" class="w-full h-full flex items-center justify-between px-4 py-2 bg-white rounded-lg shadow">
+          <div id="ingredientFilter" class="relative w-40 h-12">
+            <div class="dropdown-filter w-full h-full flex items-center justify-between px-4 py-2 bg-white rounded-lg shadow">
               <p>Ingrédients</p>
-              <img src="/images/chevron-down-light.svg" alt="Déplier le filre ingrédients" id="chevronIcon" class="size-5 ml-2 justify-center content-center" />
+              <img src="/images/chevron-down-light.svg" alt="Déplier le filre ingrédients" class="chevron-icon size-5 ml-2 justify-center content-center" />
             </div>
-            <div id="ingredientsMenu" class="absolute flex flex-col items-center z-10 -mt-3px w-full bg-white rounded-lg shadow-lg p-4 space-y-2 hidden">
+            <div class="menu absolute flex flex-col items-center z-10 -mt-3px w-full bg-white rounded-lg shadow-lg p-4 space-y-2 hidden">
               <div class="input-wrapper relative inline-block">
                 <label for="searchIngredientInput" class="sr-only">Rechercher un ingrédient</label>
                 <input id="searchIngredientInput" type="text" class="w-full py-1 outline-none border-2 border-gray-300" title="Rechercher un ingrédient" placeholder=" " />
                 <img src="/images/magnifying-glass-thin-input.svg" alt="Icône de recherche" class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" />
               </div>
-              <ul id="ingredientList" class="rounded-lg py-1 w-40 h-100 overflow-scroll bg-white"></ul>
-            </div>
-          </div>
-          <div class="wrapper">
-            <div class="dropdown-filter flex w-40 h-12 justify-evenly content-center px-3 pt-3 pb-2 rounded-lg bg-white border border-gray-300 text-left">
-              <p class="text-base font-light">Appareil</p>
-              <img src="/images/chevron-down-light.svg" alt="Déplier le filtre d'appareils" id="chevronIcon" class="size-5 ml-2 justify-center content-center" />
-            </div>
-            <div class="dropdown-menu absolute z-10 bg-white rounded-lg shadow-lg mt-2 w-40">
-              <label for="searchIngredientInput" class="sr-only">Rechercher un appareil</label>
-              <input id="searchIngredientInput" type="text" class="w-full py-1 outline-none border-2 border-gray-300" title="Rechercher un ingrédient" placeholder=" " />
               <ul class="item-list rounded-lg py-1 w-40 h-100 overflow-scroll bg-white"></ul>
             </div>
           </div>
-          <div class="wrapper">
-            <div class="dropdown-filter flex w-40 h-12 justify-between content-center px-3 pt-3 pb-2 rounded-lg bg-white border border-gray-300 text-left">
-              <p class="text-base font-light">Ustensile</p>
-              <img src="/images/chevron-down-light.svg" alt="Déplier le filtre d'ustensiles" id="chevronIcon" class="size-5 ml-2 justify-center content-center" />
+          <div id="appareilFilter" class="relative w-40 h-12">
+            <div class="dropdown-filter w-full h-full flex items-center justify-between px-4 py-2 bg-white rounded-lg shadow">
+              <p>Appareil</p>
+              <img src="/images/chevron-down-light.svg" alt="Déplier le filre ingrédients" class="chevron-icon size-5 ml-2 justify-center content-center" />
             </div>
-            <div class="dropdown-menu absolute z-10 bg-white rounded-lg shadow-lg mt-2 w-40">
-              <label for="searchIngredientInput" class="sr-only">Rechercher un ustensile</label>
-              <input id="searchIngredientInput" type="text" class="w-full py-1 outline-none border-2 border-gray-300" title="Rechercher un ingrédient" placeholder=" " />
+            <div class="menu absolute flex flex-col items-center z-10 -mt-3px w-full bg-white rounded-lg shadow-lg p-4 space-y-2 hidden">
+              <div class="input-wrapper relative inline-block">
+                <label for="searchAppareilInput" class="sr-only">Rechercher un appareil</label>
+                <input id="searchAppareilInput" type="text" class="w-full py-1 outline-none border-2 border-gray-300" title="Rechercher un appareil" placeholder=" " />
+                <img src="/images/magnifying-glass-thin-input.svg" alt="Icône de recherche" class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" />
+              </div>
+              <ul class="item-list rounded-lg py-1 w-40 h-100 overflow-scroll bg-white"></ul>
+            </div>
+          </div>
+          <div id="ustensilFilter" class="relative w-40 h-12">
+            <div class="dropdown-filter w-full h-full flex items-center justify-between px-4 py-2 bg-white rounded-lg shadow">
+              <p>Ustensile</p>
+              <img src="/images/chevron-down-light.svg" alt="Déplier le filre ingrédients" class="chevron-icon size-5 ml-2 justify-center content-center" />
+            </div>
+            <div class="menu absolute flex flex-col items-center z-10 -mt-3px w-full bg-white rounded-lg shadow-lg p-4 space-y-2 hidden">
+              <div class="input-wrapper relative inline-block">
+                <label for="searchUstensilInput" class="sr-only">Rechercher un ustensile</label>
+                <input id="searchUstensilInput" type="text" class="w-full py-1 outline-none border-2 border-gray-300" title="Rechercher un ustensile" placeholder=" " />
+                <img src="/images/magnifying-glass-thin-input.svg" alt="Icône de recherche" class="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" />
+              </div>
               <ul class="item-list rounded-lg py-1 w-40 h-100 overflow-scroll bg-white"></ul>
             </div>
           </div>

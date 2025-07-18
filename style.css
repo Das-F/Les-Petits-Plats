@@ -30,7 +30,12 @@ h1 {
   display: block !important;
 }
 
-.filters > p {
+.dropdown-filter {
+  animation-timeline: scroll(y);
+  animation-duration: 1.3s;
+}
+
+.dropdown-filter > p {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -49,7 +54,7 @@ h1 {
   transition: background-color 0.6s ease;
 }
 
-.item-list:hover {
+.item:hover {
   background-color: #ffd05a;
 }
 

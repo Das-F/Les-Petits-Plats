@@ -8,7 +8,9 @@ export function initDropdown(filterContainerId, searchInputId) {
   // Open/close menu
   toggleButton.addEventListener("click", () => {
     menu.classList.toggle("hidden");
+    menu.classList.add("-translate-y-3.5");
     chevronIcon.classList.toggle("rotate-180");
+
     if (!menu.classList.contains("hidden")) {
       searchInput.focus();
     }

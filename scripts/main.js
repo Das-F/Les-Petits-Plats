@@ -19,4 +19,3 @@ initDropdown("ingredientFilter", "searchIngredientInput");
 initDropdown("appareilFilter", "searchAppareilInput");
 initDropdown("ustensilFilter", "searchUstensilInput");
 createSearchAlgorithm(recipes, initRecipeCards);
-addTag("Example Tag 1");

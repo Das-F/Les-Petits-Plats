@@ -17,6 +17,13 @@ export function initDropdown(filterContainerId, searchInputId) {
       searchInput.focus();
     }
   });
+  // Close menu on outside click
+  document.addEventListener("click", (e) => {
+    if (!toggleButton.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add("hidden");
+      chevronIcon.classList.remove("rotate-180");
+    }
+  });
   // Search item
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase();
@@ -32,7 +39,7 @@ export function initDropdown(filterContainerId, searchInputId) {
     if (item) {
       item.classList.toggle("bg-yellow-300");
       item.classList.toggle("font-bold");
-      addTag(item.textContent); // Ajoute le tag au clic
+      addTag(item.textContent);
     }
   });
 }

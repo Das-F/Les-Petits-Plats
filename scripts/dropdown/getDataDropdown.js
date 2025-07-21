@@ -4,7 +4,6 @@ export function getIngredients(recipes) {
   recipes.forEach((recipe) => {
     if (Array.isArray(recipe.ingredients)) {
       recipe.ingredients.forEach((item) => {
-        // Normalisation : trim + minuscules
         const rawName = item.ingredient?.trim();
         const name = rawName ? rawName.toLowerCase() : "";
         if (name) {

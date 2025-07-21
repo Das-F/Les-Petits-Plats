@@ -1,4 +1,4 @@
-// Version 1.0
+// Version 2.0
 export function createSearchAlgorithm(recipes, displayRecipes) {
   const searchInput = document.getElementById("search-input");
   const searchResults = document.createElement("div");
@@ -19,14 +19,25 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
       displayRecipes(recipes);
     } else {
       searchResults.innerHTML = "";
-      const results = recipes.filter((recipe) => {
-        const recipeName = recipe.name?.toLowerCase() || "";
-        const recipeDescription = recipe.description?.toLowerCase() || "";
-        const recipeIngredients = (recipe.ingredients || []).map((ing) => ing.ingredient?.toLowerCase() || "");
-        return recipeName.includes(value) || recipeDescription.includes(value) || recipeIngredients.some((ingredient) => ingredient.includes(value));
-      });
+      const results = [];
+      for (let i = 0; i < recipes.length; i++) {
+        const recipe = recipes[i];
+        const name = recipe.name?.toLowerCase() || "";
+        const description = recipe.description?.toLowerCase() || "";
+        let found = name.includes(value) || description.includes(value);
+        if (!found && Array.isArray(recipe.ingredients)) {
+          for (let j = 0; j < recipe.ingredients.length; j++) {
+            const ing = recipe.ingredients[j].ingredient?.toLowerCase() || "";
+            if (ing.includes(value)) {
+              found = true;
+              break;
+            }
+          }
+        }
+        if (found) results.push(recipe);
+      }
       if (results.length === 0) {
-        searchResults.innerText = `Aucune recette ne contient ‘${value}’ vous pouvez chercher « tarte aux pommes », « poisson » etc.`;
+        searchResults.innerText = `Aucune recette ne contient '${value}' vous pouvez chercher « tarte aux pommes », « poisson » etc.`;
       } else {
         results.sort((a, b) => a.name.localeCompare(b.name));
         displayRecipes(results);

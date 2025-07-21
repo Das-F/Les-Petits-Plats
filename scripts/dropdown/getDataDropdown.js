@@ -4,16 +4,19 @@ export function getIngredients(recipes) {
   recipes.forEach((recipe) => {
     if (Array.isArray(recipe.ingredients)) {
       recipe.ingredients.forEach((item) => {
-        const name = item.ingredient?.trim();
+        // Normalisation : trim + minuscules
+        const rawName = item.ingredient?.trim();
+        const name = rawName ? rawName.toLowerCase() : "";
         if (name) {
           ingredientsSet.add(name);
         }
-        console.log("Ingredient ajouté");
       });
     }
   });
 
-  return Array.from(ingredientsSet);
+  return Array.from(ingredientsSet)
+    .map((name) => name.charAt(0).toUpperCase() + name.slice(1))
+    .sort((a, b) => a.localeCompare(b));
 }
 
 export function getAppareils(recipes) {
@@ -27,7 +30,9 @@ export function getAppareils(recipes) {
     console.log("Appareil ajouté");
   });
 
-  return Array.from(appareilsSet);
+  return Array.from(appareilsSet)
+    .map((name) => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase())
+    .sort((a, b) => a.localeCompare(b));
 }
 
 export function getUstensiles(recipes) {
@@ -45,5 +50,7 @@ export function getUstensiles(recipes) {
     }
   });
 
-  return Array.from(ustensilesSet);
+  return Array.from(ustensilesSet)
+    .map((name) => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase())
+    .sort((a, b) => a.localeCompare(b));
 }

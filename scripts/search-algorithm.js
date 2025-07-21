@@ -6,7 +6,7 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
   const mainHead = document.querySelector(".main-head");
   mainHead.appendChild(searchResults);
   const recipeList = document.querySelector(".recipe-list");
-  const MAX_LENGTH_SEARCH = 3;
+  const MIN_LENGTH_SEARCH = 3;
 
   searchInput.addEventListener("input", (e) => {
     const value = e.target.value.trim().toLowerCase();
@@ -14,8 +14,8 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
     if (value.length === 0) {
       searchResults.innerHTML = "";
       displayRecipes(recipes);
-    } else if (value.length < MAX_LENGTH_SEARCH) {
-      searchResults.innerHTML = `Merci de saisir au moins ${MAX_LENGTH_SEARCH} caractères.`;
+    } else if (value.length < MIN_LENGTH_SEARCH) {
+      searchResults.innerHTML = `Merci de saisir au moins ${MIN_LENGTH_SEARCH} caractères.`;
       displayRecipes(recipes);
     } else {
       searchResults.innerHTML = "";

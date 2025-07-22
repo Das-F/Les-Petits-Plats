@@ -18,4 +18,11 @@ createDropdownList(allUstensiles, "ustensilFilter");
 initDropdown("ingredientFilter", "searchIngredientInput");
 initDropdown("appareilFilter", "searchAppareilInput");
 initDropdown("ustensilFilter", "searchUstensilInput");
-createSearchAlgorithm(recipes, initRecipeCards);
+createSearchAlgorithm(recipes, displayAndUpdateFilters);
+
+function displayAndUpdateFilters(filteredRecipes) {
+  initRecipeCards(filteredRecipes);
+  createDropdownList(getIngredients(filteredRecipes), "ingredientFilter");
+  createDropdownList(getAppareils(filteredRecipes), "appareilFilter");
+  createDropdownList(getUstensiles(filteredRecipes), "ustensilFilter");
+}

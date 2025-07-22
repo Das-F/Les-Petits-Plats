@@ -37,7 +37,8 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
         if (found) results.push(recipe);
       }
       if (results.length === 0) {
-        searchResults.innerText = `Aucune recette ne contient '${value}' vous pouvez chercher « tarte aux pommes », « poisson » etc.`;
+        searchResults.innerText = "...";
+        displayRecipes([]);
       } else {
         results.sort((a, b) => a.name.localeCompare(b.name));
         displayRecipes(results);
@@ -84,7 +85,8 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
 //         if (found) results.push(recipe);
 //       }
 //       if (results.length === 0) {
-//         searchResults.innerText = `Aucune recette ne contient '${value}' vous pouvez chercher « tarte aux pommes », « poisson » etc.`;
+//         searchResults.innerText = "...";
+//         displayRecipes([]);
 //       } else {
 //         results.sort((a, b) => a.name.localeCompare(b.name));
 //         displayRecipes(results);

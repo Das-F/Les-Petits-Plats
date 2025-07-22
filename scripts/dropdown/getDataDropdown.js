@@ -1,3 +1,4 @@
+// Ingredients
 export function getIngredients(recipes) {
   const ingredientsSet = new Set();
 
@@ -18,6 +19,13 @@ export function getIngredients(recipes) {
     .sort((a, b) => a.localeCompare(b));
 }
 
+// Filter recipes by ingredient
+export function filterRecipesByIngredient(recipe, ingredient) {
+  if (!Array.isArray(recipe.ingredients)) return false;
+  return recipe.ingredients.some((item) => item.ingredient?.trim().toLowerCase() === ingredient.toLowerCase());
+}
+
+// Appareils
 export function getAppareils(recipes) {
   const appareilsSet = new Set();
 
@@ -34,6 +42,7 @@ export function getAppareils(recipes) {
     .sort((a, b) => a.localeCompare(b));
 }
 
+// Ustensils
 export function getUstensiles(recipes) {
   const ustensilesSet = new Set();
   recipes.forEach((recipe) => {

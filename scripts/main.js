@@ -4,7 +4,7 @@ import { getIngredients, getAppareils, getUstensiles } from "./dropdown/getDataD
 import { createDropdownList } from "./dropdown/displayDropdown.js";
 import { createSearchAlgorithm } from "./search-algorithm.js";
 import { initDropdown } from "./dropdown/initDropdown.js";
-import { addTag } from "./tags-filters.js";
+import { filterRecipesByIngredient } from "./dropdown/getDataDropdown.js";
 
 const recipes = await fetchRecipesData();
 const allIngredients = getIngredients(recipes);

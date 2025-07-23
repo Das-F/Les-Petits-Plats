@@ -1,3 +1,5 @@
+// This script handles the addition and removal of tags in a recipe filtering system.
+
 import { filterRecipesByTags } from "../filters/recipeFilters.js";
 import { displayAndUpdateFilters } from "../ui/display.js";
 import { addTagToDOM } from "./tagDisplay.js";

@@ -1,3 +1,4 @@
+// This function allows you to filter a list of recipes based on several tags (ingredients, appliances or utensils).
 export function filterRecipesByTags(recipes, tags) {
   return recipes.filter((recipe) => {
     return tags.every((tag) => {

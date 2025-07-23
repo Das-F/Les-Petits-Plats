@@ -1,3 +1,5 @@
+// Get the ingredients, appliances, and utensils from the recipes.
+
 // Ingredients
 export function getIngredients(recipes) {
   const ingredientsSet = new Set();
@@ -19,7 +21,7 @@ export function getIngredients(recipes) {
     .sort((a, b) => a.localeCompare(b));
 }
 
-// Appareils
+// Appliances
 export function getAppareils(recipes) {
   const appareilsSet = new Set();
 

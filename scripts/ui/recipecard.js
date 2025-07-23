@@ -1,3 +1,5 @@
+// This script creates and initializes recipe cards in the UI.
+
 function createRecipeCard() {
   const recipeCard = document.createElement("div");
   recipeCard.className = "relative flex w-[380px] h-[680px] bg-white rounded-xl shadow-md overflow-hidden flex-col";

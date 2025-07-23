@@ -1,3 +1,6 @@
+// This script initializes a dropdown menu with search functionality and item selection.
+// It allows users to filter items by typing in a search input and select items by clicking on them.
+
 export function initDropdown(filterContainerId, searchInputId, onItemSelected, tagType) {
   const toggleButton = document.querySelector(`#${filterContainerId} .dropdown-filter`);
   const menu = document.querySelector(`#${filterContainerId} .menu`);

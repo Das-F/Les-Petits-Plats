@@ -1,3 +1,7 @@
+// This script adds a tag to the DOM and sets up an event listener for removing the tag.
+// It creates a tag element with a text and a remove icon, and appends it to the tag container.
+// When the remove icon is clicked, it removes the tag from the DOM and calls the provided.
+
 export function addTagToDOM(tagName, tagType, onRemove) {
   const tagContainer = document.querySelector(".tags");
   const exists = Array.from(tagContainer.children).some((tag) => tag.querySelector(".tag-text")?.textContent === tagName);

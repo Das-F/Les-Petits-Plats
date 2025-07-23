@@ -1,3 +1,6 @@
+// This script creates a list item element for the dropdown menu.
+// It is used to populate the dropdown with items dynamically.
+
 function createItemList() {
   const item = document.createElement("li");
   item.className = "item";

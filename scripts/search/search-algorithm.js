@@ -7,7 +7,6 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
   mainHead.appendChild(searchResults);
   const recipeList = document.querySelector(".recipe-list");
   const MIN_LENGTH_SEARCH = 3;
-
   searchInput.addEventListener("input", (e) => {
     const value = e.target.value.trim().toLowerCase();
     recipeList.innerHTML = "";
@@ -46,7 +45,6 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
     }
   });
 }
-
 // export function createSearchAlgorithm(recipes, displayRecipes) {
 //   const searchInput = document.getElementById("search-input");
 //   const searchResults = document.createElement("div");
@@ -55,7 +53,6 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
 //   mainHead.appendChild(searchResults);
 //   const recipeList = document.querySelector(".recipe-list");
 //   const MAX_LENGTH_SEARCH = 3;
-
 //   searchInput.addEventListener("input", (e) => {
 //     const value = e.target.value.trim().toLowerCase();
 //     recipeList.innerHTML = "";

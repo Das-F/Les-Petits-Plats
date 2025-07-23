@@ -1,6 +1,4 @@
-import { addTag } from "../tags-filters.js"; // Ajoute cet import en haut du fichier
-
-export function initDropdown(filterContainerId, searchInputId) {
+export function initDropdown(filterContainerId, searchInputId, onItemSelected, tagType) {
   const toggleButton = document.querySelector(`#${filterContainerId} .dropdown-filter`);
   const menu = document.querySelector(`#${filterContainerId} .menu`);
   const chevronIcon = document.querySelector(`#${filterContainerId} .chevron-icon`);
@@ -39,7 +37,7 @@ export function initDropdown(filterContainerId, searchInputId) {
     if (item) {
       item.classList.toggle("bg-yellow-300");
       item.classList.toggle("font-bold");
-      addTag(item.textContent);
+      onItemSelected(item.textContent, tagType);
     }
   });
 }

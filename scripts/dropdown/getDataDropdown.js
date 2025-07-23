@@ -19,12 +19,6 @@ export function getIngredients(recipes) {
     .sort((a, b) => a.localeCompare(b));
 }
 
-// Filter recipes by ingredient
-export function filterRecipesByIngredient(recipe, ingredient) {
-  if (!Array.isArray(recipe.ingredients)) return false;
-  return recipe.ingredients.some((item) => item.ingredient?.trim().toLowerCase() === ingredient.toLowerCase());
-}
-
 // Appareils
 export function getAppareils(recipes) {
   const appareilsSet = new Set();

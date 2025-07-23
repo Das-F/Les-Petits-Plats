@@ -12,10 +12,10 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
     recipeList.innerHTML = "";
     if (value.length === 0) {
       searchResults.innerHTML = "";
-      displayRecipes(recipes);
+      displayRecipes(recipes, false);
     } else if (value.length < MIN_LENGTH_SEARCH) {
       searchResults.innerHTML = `Merci de saisir au moins ${MIN_LENGTH_SEARCH} caractères.`;
-      displayRecipes(recipes);
+      displayRecipes(recipes, false);
     } else {
       searchResults.innerHTML = "";
       const results = [];
@@ -40,7 +40,8 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
         displayRecipes([]);
       } else {
         results.sort((a, b) => a.name.localeCompare(b.name));
-        displayRecipes(results);
+        // Quand il y a une recherche
+        displayRecipes(results, true);
       }
     }
   });

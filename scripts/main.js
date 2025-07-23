@@ -7,7 +7,7 @@ import { handleDropdownItemSelected } from "./tags/tagManager.js";
 const activeTags = [];
 const recipes = await fetchRecipesData();
 let filteredBySearch = [...recipes];
-displayAndUpdateFilters(recipes);
+displayAndUpdateFilters(recipes, false);
 function dropdownCallback(tagName, tagType) {
   handleDropdownItemSelected(tagName, tagType, activeTags, filteredBySearch);
 }

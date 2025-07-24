@@ -4,11 +4,11 @@ import { initRecipeCards } from "./recipeCard.js";
 import { getIngredients, getAppareils, getUstensiles } from "../dropdown/getDataDropdown.js";
 import { createDropdownList } from "../dropdown/displayDropdown.js";
 import { updateRecipeCounter } from "./recipeCounter.js";
-export function displayAndUpdateFilters(filteredRecipes, isSearchActive = true) {
+export function displayAndUpdateFilters(filteredRecipes) {
   initRecipeCards(filteredRecipes);
   createDropdownList(getIngredients(filteredRecipes), "ingredientFilter");
   createDropdownList(getAppareils(filteredRecipes), "appareilFilter");
   createDropdownList(getUstensiles(filteredRecipes), "ustensilFilter");
 
-  updateRecipeCounter(isSearchActive ? filteredRecipes.length : 1500, isSearchActive);
+  updateRecipeCounter(filteredRecipes.length);
 }

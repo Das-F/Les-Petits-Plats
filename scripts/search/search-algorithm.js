@@ -40,7 +40,7 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
         displayRecipes([]);
       } else {
         results.sort((a, b) => a.name.localeCompare(b.name));
-        // Quand il y a une recherche
+
         displayRecipes(results, true);
       }
     }

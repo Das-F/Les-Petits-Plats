@@ -1,4 +1,7 @@
-// Version 1 – 25-07/25
+// This script implements a search algorithm for recipes.
+// It listens for input in the search field and filters recipes based on the input value.
+
+// Version 1
 
 export function createSearchAlgorithm(recipes, displayRecipes) {
   const searchInput = document.getElementById("search-input");

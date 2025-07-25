@@ -26,14 +26,19 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
       const results = recipes.filter((recipe) => {
         const name = recipe.name?.toLowerCase() || "";
         const description = recipe.description?.toLowerCase() || "";
-        const ingredients = (recipe.ingredients || []).map((ing) => ing.ingredient?.toLowerCase() || "");
-        return name.includes(value) || description.includes(value) || ingredients.some((ingredient) => ingredient.includes(value));
+        if (name.includes(value) || description.includes(value)) return true;
+        if (Array.isArray(recipe.ingredients)) {
+          return recipe.ingredients.some((ing) => ing.ingredient?.toLowerCase().includes(value));
+        }
+        return false;
       });
       if (results.length === 0) {
         searchResults.innerText = `Aucune recette ne contient "${value}" vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
         displayRecipes([], true);
       } else {
-        results.sort((a, b) => a.name.localeCompare(b.name));
+        if (results.length > 1) {
+          results.sort((a, b) => a.name.localeCompare(b.name));
+        }
         displayRecipes(results, true);
       }
     }

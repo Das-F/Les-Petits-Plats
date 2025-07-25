@@ -2,7 +2,6 @@
 // It listens for input in the search field and filters recipes based on the input value.
 
 // Version 1
-
 export function createSearchAlgorithm(recipes, displayRecipes) {
   const searchInput = document.getElementById("search-input");
   const searchResults = document.createElement("div");
@@ -15,6 +14,7 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
   searchInput.addEventListener("input", (e) => {
     const value = e.target.value.trim().toLowerCase();
     recipeList.innerHTML = "";
+
     if (value.length === 0) {
       searchResults.innerHTML = "";
       displayRecipes(recipes, false);
@@ -23,24 +23,34 @@ export function createSearchAlgorithm(recipes, displayRecipes) {
       displayRecipes(recipes, false);
     } else {
       searchResults.innerHTML = "";
-      const results = recipes.filter((recipe) => {
-        const name = recipe.name?.toLowerCase() || "";
-        const description = recipe.description?.toLowerCase() || "";
-        if (name.includes(value) || description.includes(value)) return true;
-        if (Array.isArray(recipe.ingredients)) {
-          return recipe.ingredients.some((ing) => ing.ingredient?.toLowerCase().includes(value));
-        }
-        return false;
-      });
+      const results = filterRecipesBySearch(recipes, value);
+
+      // Tri alphabétique
+      results.sort((a, b) => a.name.localeCompare(b.name));
+
       if (results.length === 0) {
         searchResults.innerText = `Aucune recette ne contient "${value}" vous pouvez chercher « tarte aux pommes », « poisson », etc.`;
         displayRecipes([], true);
       } else {
-        if (results.length > 1) {
-          results.sort((a, b) => a.name.localeCompare(b.name));
-        }
         displayRecipes(results, true);
       }
     }
+  });
+}
+
+function filterRecipesBySearch(recipes, searchValue) {
+  const value = searchValue.trim().toLowerCase();
+  if (value.length < 3) return recipes;
+
+  return recipes.filter((recipe) => {
+    const name = recipe.name ? recipe.name.toLowerCase() : "";
+    const description = recipe.description ? recipe.description.toLowerCase() : "";
+
+    if (name.includes(value) || description.includes(value)) return true;
+
+    if (Array.isArray(recipe.ingredients)) {
+      return recipe.ingredients.some((ing) => (ing.ingredient ? ing.ingredient.toLowerCase() : "").includes(value));
+    }
+    return false;
   });
 }

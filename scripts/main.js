@@ -18,7 +18,13 @@ initDropdown("appareilFilter", "searchAppareilInput", dropdownCallback, "apparei
 initDropdown("ustensilFilter", "searchUstensilInput", dropdownCallback, "ustensile");
 createSearchAlgorithm(recipes, updateFilteredBySearch);
 function updateFilteredBySearch(newList) {
-  filteredBySearch = newList;
-  const filtered = filterRecipesByTags(filteredBySearch, activeTags);
+  const noSearch = document.getElementById("search-input").value.trim().length === 0;
+  const noTags = activeTags.length === 0;
+
+  // Si pas de recherche, on repart de toutes les recettes
+  filteredBySearch = noSearch ? [...recipes] : newList;
+
+  const filtered = noSearch && noTags ? recipes : filterRecipesByTags(filteredBySearch, activeTags);
+
   displayAndUpdateFilters(filtered);
 }

@@ -30,11 +30,6 @@ h1 {
   display: block !important;
 }
 
-.dropdown-filter {
-  animation-timeline: scroll(y);
-  animation-duration: 1.3s;
-}
-
 .dropdown-filter > p {
   font-family: "Manrope", sans-serif;
   font-weight: 500;

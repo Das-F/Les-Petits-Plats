@@ -9,6 +9,7 @@ const activeTags = [];
 const recipes = await fetchRecipesData();
 let filteredBySearch = [...recipes];
 displayAndUpdateFilters(recipes, false);
+// This function initializes the dropdowns and sets up the callback for tag selection.
 function dropdownCallback(tagName, tagType) {
   handleDropdownItemSelected(tagName, tagType, activeTags, filteredBySearch);
 }
@@ -17,14 +18,13 @@ initDropdown("ingredientFilter", "searchIngredientInput", dropdownCallback, "ing
 initDropdown("appareilFilter", "searchAppareilInput", dropdownCallback, "appareil");
 initDropdown("ustensilFilter", "searchUstensilInput", dropdownCallback, "ustensile");
 createSearchAlgorithm(recipes, updateFilteredBySearch);
+// This function updates the filtered recipes based on the search input and active tags.
 function updateFilteredBySearch(newList) {
   const noSearch = document.getElementById("search-input").value.trim().length === 0;
   const noTags = activeTags.length === 0;
 
-  // Si pas de recherche, on repart de toutes les recettes
+  // If no search input and no active tags, use the original recipes list
   filteredBySearch = noSearch ? [...recipes] : newList;
-
   const filtered = noSearch && noTags ? recipes : filterRecipesByTags(filteredBySearch, activeTags);
-
   displayAndUpdateFilters(filtered);
 }

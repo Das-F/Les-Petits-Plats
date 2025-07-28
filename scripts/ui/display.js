@@ -9,6 +9,5 @@ export function displayAndUpdateFilters(filteredRecipes) {
   createDropdownList(getIngredients(filteredRecipes), "ingredientFilter");
   createDropdownList(getAppareils(filteredRecipes), "appareilFilter");
   createDropdownList(getUstensiles(filteredRecipes), "ustensilFilter");
-
   updateRecipeCounter(filteredRecipes.length);
 }

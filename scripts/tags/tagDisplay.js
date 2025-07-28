@@ -4,18 +4,22 @@
 
 export function addTagToDOM(tagName, tagType, onRemove) {
   const tagContainer = document.querySelector(".tags");
+  // Check if the tag already exists to avoid duplicates
   const exists = Array.from(tagContainer.children).some((tag) => tag.querySelector(".tag-text")?.textContent === tagName);
   if (exists) return;
+  // Create a new tag element
   const tag = document.createElement("div");
   tag.className = "tag flex items-center justify-between z-1 h-10 w-40 bg-white rounded-lg shadow-lg p-4 space-y-2 cursor-pointer";
   const tagText = document.createElement("span");
   tagText.className = "tag-text text-black-500 text-sm truncate m-0 p-0";
   tagText.textContent = tagName;
   tag.appendChild(tagText);
+  // Create a remove icon for the tag
   const removeIcon = document.createElement("span");
   removeIcon.className = "remove-icon text-black-500 pl-1 cursor-pointer";
   removeIcon.textContent = "X";
   tag.appendChild(removeIcon);
+  // Add event listener to the remove icon
   removeIcon.addEventListener("click", () => {
     tag.remove();
     onRemove(tagName, tagType);

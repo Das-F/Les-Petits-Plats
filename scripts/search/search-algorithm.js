@@ -12,6 +12,7 @@ export function createSearchAlgorithm(onSearchChange) {
 }
 
 export function filterRecipesBySearch(recipes, searchValue) {
+  console.trace("Utilisation de la fonction filterRecipesBySearch");
   const value = searchValue.trim().toLowerCase();
 
   const results = recipes.filter((recipe) => {

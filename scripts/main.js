@@ -4,21 +4,34 @@ import { initDropdown } from "./dropdown/initDropdown.js";
 import { displayAndUpdateFilters } from "./ui/display.js";
 import { filterRecipesByTags } from "./filters/recipeFilters.js";
 import { handleDropdownItemSelected } from "./tags/tagManager.js";
-import { updateRecipeCounter } from "./ui/recipeCounter.js";
-const activeTags = [];
-const recipes = await fetchRecipesData();
-let filteredBySearch = [...recipes];
-displayAndUpdateFilters(recipes, false);
-function dropdownCallback(tagName, tagType) {
-  handleDropdownItemSelected(tagName, tagType, activeTags, filteredBySearch);
+import { filterRecipesBySearch } from "./search/search-algorithm.js";
+
+async function main() {
+  const allRecipes = await fetchRecipesData();
+  let activeTags = [];
+  let mainSearchQuery = "";
+
+  function applyFiltersAndDisplay() {
+    let searchResults = mainSearchQuery.length >= 3 ? filterRecipesBySearch(allRecipes, mainSearchQuery) : [...allRecipes];
+    const finalFilteredRecipes = filterRecipesByTags(searchResults, activeTags);
+    displayAndUpdateFilters(finalFilteredRecipes, mainSearchQuery);
+  }
+
+  function onSearchChange(query) {
+    mainSearchQuery = query;
+    applyFiltersAndDisplay();
+  }
+
+  function onTagChange(newActiveTags) {
+    activeTags = newActiveTags;
+    applyFiltersAndDisplay();
+  }
+
+  createSearchAlgorithm(onSearchChange);
+  initDropdown("ingredientFilter", "searchIngredientInput", (name, type) => handleDropdownItemSelected(name, type, activeTags, onTagChange), "ingredient");
+  initDropdown("appareilFilter", "searchAppareilInput", (name, type) => handleDropdownItemSelected(name, type, activeTags, onTagChange), "appareil");
+  initDropdown("ustensilFilter", "searchUstensilInput", (name, type) => handleDropdownItemSelected(name, type, activeTags, onTagChange), "ustensile");
+  applyFiltersAndDisplay();
 }
-updateRecipeCounter(recipes.length);
-initDropdown("ingredientFilter", "searchIngredientInput", dropdownCallback, "ingredient");
-initDropdown("appareilFilter", "searchAppareilInput", dropdownCallback, "appareil");
-initDropdown("ustensilFilter", "searchUstensilInput", dropdownCallback, "ustensile");
-createSearchAlgorithm(recipes, updateFilteredBySearch);
-function updateFilteredBySearch(newList) {
-  filteredBySearch = newList;
-  const filtered = filterRecipesByTags(filteredBySearch, activeTags);
-  displayAndUpdateFilters(filtered);
-}
+
+main();

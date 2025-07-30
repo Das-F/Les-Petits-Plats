@@ -4,7 +4,10 @@ import { initRecipeCards } from "./recipeCard.js";
 import { getIngredients, getAppareils, getUstensiles } from "../dropdown/getDataDropdown.js";
 import { createDropdownList } from "../dropdown/displayDropdown.js";
 import { updateRecipeCounter } from "./recipeCounter.js";
-export function displayAndUpdateFilters(filteredRecipes) {
+import { updateSearchMessage } from "../search/searchMessage.js";
+
+export function displayAndUpdateFilters(filteredRecipes, searchQuery) {
+  updateSearchMessage(filteredRecipes, searchQuery);
   initRecipeCards(filteredRecipes);
   createDropdownList(getIngredients(filteredRecipes), "ingredientFilter");
   createDropdownList(getAppareils(filteredRecipes), "appareilFilter");

@@ -1,6 +1,10 @@
-// Version 2.0
-export function createSearchAlgorithm(recipes, displayRecipes) {
+// This script implements a search algorithm for recipes.
+// It listens for input in the search field and filters recipes based on the input value.
+
+// Version 1
+export function createSearchAlgorithm(onSearchChange) {
   const searchInput = document.getElementById("search-input");
+<<<<<<< HEAD
   const searchResults = document.createElement("div");
   searchResults.className = "search-results text-white mt-4";
   const mainHead = document.querySelector(".main-head");
@@ -76,5 +80,31 @@ function filterRecipesBySearch(recipes, searchInput) {
     }
   }
 
+=======
+
+  searchInput.addEventListener("input", (e) => {
+    const value = e.target.value.trim().toLowerCase();
+    onSearchChange(value);
+  });
+}
+
+export function filterRecipesBySearch(recipes, searchValue) {
+  console.trace("Utilisation de la fonction filterRecipesBySearch");
+  const value = searchValue.trim().toLowerCase();
+
+  const results = recipes.filter((recipe) => {
+    const name = recipe.name ? recipe.name.toLowerCase() : "";
+    const description = recipe.description ? recipe.description.toLowerCase() : "";
+
+    if (name.includes(value) || description.includes(value)) return true;
+
+    if (Array.isArray(recipe.ingredients)) {
+      return recipe.ingredients.some((ing) => (ing.ingredient ? ing.ingredient.toLowerCase() : "").includes(value));
+    }
+    return false;
+  });
+
+  results.sort((a, b) => a.name.localeCompare(b.name));
+>>>>>>> search-algorithm-1
   return results;
 }

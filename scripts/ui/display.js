@@ -7,10 +7,10 @@ import { updateRecipeCounter } from "./recipeCounter.js";
 import { updateSearchMessage } from "../search/searchMessage.js";
 
 export function displayAndUpdateFilters(filteredRecipes, searchQuery) {
-  updateSearchMessage(filteredRecipes, searchQuery);
   initRecipeCards(filteredRecipes);
   createDropdownList(getIngredients(filteredRecipes), "ingredientFilter");
   createDropdownList(getAppareils(filteredRecipes), "appareilFilter");
   createDropdownList(getUstensiles(filteredRecipes), "ustensilFilter");
   updateRecipeCounter(filteredRecipes.length);
+  updateSearchMessage(filteredRecipes, searchQuery);
 }

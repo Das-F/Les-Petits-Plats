@@ -1,43 +1,32 @@
-export function filterRecipesBySearch(recipes, searchInput) {
-  const value = searchInput.trim().toLowerCase();
-  const MIN_LENGTH_SEARCH = 3;
-  if (value.length < MIN_LENGTH_SEARCH) return [];
+// This script implements a search algorithm for recipes.
+// It listens for input in the search field and filters recipes based on the input value.
 
-  function containsSubstring(text, sub) {
-    for (let i = 0; i <= text.length - sub.length; i++) {
-      if (text.substring(i, i + sub.length) === sub) {
-        return true;
-      }
-    }
-    return false;
-  }
+// Version 1
+export function createSearchAlgorithm(onSearchChange) {
+  const searchInput = document.getElementById("search-input");
 
-  let results = [];
+  searchInput.addEventListener("input", (e) => {
+    const value = e.target.value.trim().toLowerCase();
+    onSearchChange(value);
+  });
+}
 
-  for (let i = 0; i < recipes.length; i++) {
-    const recipe = recipes[i];
+export function filterRecipesBySearch(recipes, searchValue) {
+  console.trace("Utilisation de la fonction filterRecipesBySearch");
+  const value = searchValue.trim().toLowerCase();
+
+  const results = recipes.filter((recipe) => {
     const name = recipe.name ? recipe.name.toLowerCase() : "";
     const description = recipe.description ? recipe.description.toLowerCase() : "";
-    let found = false;
 
-    if (containsSubstring(name, value) || containsSubstring(description, value)) {
-      found = true;
+    if (name.includes(value) || description.includes(value)) return true;
+
+    if (Array.isArray(recipe.ingredients)) {
+      return recipe.ingredients.some((ing) => (ing.ingredient ? ing.ingredient.toLowerCase() : "").includes(value));
     }
+    return false;
+  });
 
-    if (!found && Array.isArray(recipe.ingredients)) {
-      for (let j = 0; j < recipe.ingredients.length; j++) {
-        const ing = recipe.ingredients[j].ingredient ? recipe.ingredients[j].ingredient.toLowerCase() : "";
-        if (containsSubstring(ing, value)) {
-          found = true;
-          break;
-        }
-      }
-    }
-
-    if (found) {
-      results.push(recipe);
-    }
-  }
-
+  results.sort((a, b) => a.name.localeCompare(b.name));
   return results;
 }

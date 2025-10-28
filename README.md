@@ -1,22 +1,41 @@
-# Les-Petits-Plats
+# 🍲 Les Petits Plats — Moteur de recherche de recettes
 
-Création d'un moteur de recherche pour un site référencant des recettes de cuisine
+**Les Petits Plats** est un projet du parcours Développeur Front-End OpenClassrooms (Projet 7).  
+Il s’agit d’un site de recettes avec une interface utilisateur complète et un moteur de recherche performant permettant de filtrer les recettes selon différents critères.
 
-Il comprend une interface utilisateur complète ainsi que deux versions d'algorithme de recherche que je compare afin de choisir la plus performante et pertinente.
+---
 
-# Branche principale
+## 🎯 Objectifs du projet
+- Créer une application web dynamique pour rechercher et filtrer des recettes de cuisine.  
+- Concevoir et comparer deux algorithmes de recherche afin d’évaluer leur performance et leur pertinence.  
+- Appliquer les bonnes pratiques de développement front-end (modularité, clarté, optimisation).  
 
-- `main` : Contient la version principale de l'application (interface, composants, données, sans algorithme final intégré pour l’instant).
+---
 
-# Branches d'algorithmes
+## 📂 Technologies principales
+- **HTML / CSS** : structure et mise en page responsive  
+- **JavaScript** : logique de recherche, génération dynamique des cartes recettes, gestion des filtres  
+- **JSON** : source de données pour les recettes  
 
-Deux branches expérimentales ont été créées pour tester et comparer différentes implémentations du moteur de recherche :
+---
 
-- `search-algorithm-1` : Première version de l’algorithme de recherche.
-- `search-algorithm-12` : Deuxième version de l’algorithme, avec une approche différente.
+## 🧠 Architecture & branches
+- **`main`** : version principale (interface, composants, données, sans algorithme final intégré).  
+- **`search-algorithm-1`** : première implémentation du moteur de recherche.  
+- **`search-algorithm-2`** : deuxième version avec une approche optimisée.  
 
-Chacune de ces branches contient uniquement les modifications liées à l’algorithme, afin de pouvoir tester, comparer et analyser les performances de manière isolée.
+Chaque branche expérimentale contient uniquement les modifications liées à l’algorithme pour permettre une comparaison claire des performances.
 
-# Objectif
+---
 
-Après évaluation, la meilleure version de l'algorithme sera fusionnée dans la branche `main`.
+## 🚀 Objectif final
+Comparer les deux implémentations afin de choisir la plus efficace, puis intégrer la version retenue dans la branche principale (`main`).
+
+---
+
+## 🎓 Compétences visées
+- Manipulation avancée du DOM et des structures de données  
+- Optimisation de la performance JavaScript  
+- Gestion de la modularité du code  
+- Évaluation et comparaison d’algorithmes
+  
